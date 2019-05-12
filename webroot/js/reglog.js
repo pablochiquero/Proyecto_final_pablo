@@ -33,7 +33,7 @@ $(document).ready(function()
         $("#registrarArt").click(function()  //<-- BOTON REG ARTISTA
         {  
                 msg="";
-                if($("#NameArtistaReg").val() == ""){ // <-- VALIDACIÓN DE NOMBRE REG ARTISTA
+                if($("#NameArtistaReg").val() == ""){ // <-- VALIDACIÓN DE NOMBRE REG ARTISTAasd
                     msg+="Rellene el campo Nombre <br>";                
                     $("#NameArtistaReg").addClass('error-validation');
 
