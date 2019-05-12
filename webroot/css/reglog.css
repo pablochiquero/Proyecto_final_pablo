@@ -1,0 +1,64 @@
+
+    /* FORMULARIOS DE REGISTRO */
+
+    .cont-LR-artista{
+        float: left;
+        width: 45%;
+        padding: 1rem;
+    }
+    .cont-LR-club{
+        float: left;
+        width: 45%;
+        padding: 1rem;
+    }
+
+.ffreg{
+    
+    width: 100%;
+    margin:  1rem auto;
+    border: 1px solid grey;
+    padding: 1rem;
+    border-radius: 10px;  
+}
+
+
+.form-control {
+  
+    width: 50%!important;
+}
+
+.regArt{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.logArt{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.regClub{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.logClub{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+#regArt{
+    display: none;
+}
+#regClub{
+    display: none;
+}
+
+
+
+.error-validation{
+    border: 1px solid red!important;
+}
+/* .errors{
+    width: 40%;
+    
+} */
