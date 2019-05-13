@@ -12,7 +12,7 @@ class artistasController extends Controller {
         
 		if(isset($_POST["SearchArtista"])){
 			
-            //var_dump($method);
+           
 
             $Search=Security::secure_input($_POST["SearchArtista"]);
            
