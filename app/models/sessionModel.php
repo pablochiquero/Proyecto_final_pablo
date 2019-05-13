@@ -46,6 +46,7 @@ class sessionModel extends Model     //CLASE SESSION MODEL
 		{
 			$_SESSION["usuario"]=$EmailAL;
                         return "login correcto"." ". $user;
+                        
                                
 		}
 		else

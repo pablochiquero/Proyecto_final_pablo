@@ -120,9 +120,9 @@ class sessionController extends Controller {
         if(isset($_SESSION["usuario"]))
          {
             unset($_SESSION["usuario"]);
-    //    session_destroy();
-                        //header('location:'. BASE_DOMAIN_DIR_URL . 'home/index.php');
-        $this->render('index');
+            session_destroy();
+            header('location:'. BASE_DOMAIN_DIR_URL . 'home/index.php');
+        //$this->render('index');
         }
     }
 
