@@ -19,6 +19,22 @@
 <body>
 
 <header>
+
+<?php
+if(isset($_SESSION["usuario"])){
+   
+ 
+    echo "<h1>".$_SESSION['usuario']."</h1>";
+    
+
+      
+}
+else{
+    echo "<h3>conectado</h3>";
+    echo "<h2>prueba</h2>";
+}
+
+?>
                         <!--MENU-->                                                  
     <div class="pos-f-t">
     <div class="collapse" id="navbarToggleExternalContent">
@@ -34,6 +50,11 @@
             
             <a href="<?php echo BASE_DIR_URL ?>session/index"> <h5 class="text-white h4">Login</h5></a>
             <span class="text-muted">Entra o Registrate si aún no tienes cuenta.</span>
+            <hr> -->
+
+         <form action="session/salir"><input type="submit" value="salir"></form>
+            <a action="session/salir"> <h5 class="text-white h4">Salir</h5></a>
+             <span class="text-muted">Sal de tu cuenta.</span> 
         </div>
     </div>
 
@@ -45,7 +66,7 @@
             <h1 class="logo">Siatelo</h1>
         </nav>
 
-    </div>
+    </div> 
 </header>
 <main>
     <div class="search">  <!--   BUSCADOR -->

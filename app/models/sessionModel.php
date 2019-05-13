@@ -44,7 +44,7 @@ class sessionModel extends Model     //CLASE SESSION MODEL
 		
 		if($rows>0)
 		{
-			//$_SESSION["usuario"]=$EmailAL;
+			$_SESSION["usuario"]=$EmailAL;
                         return "login correcto"." ". $user;
                                
 		}
@@ -98,7 +98,7 @@ class sessionModel extends Model     //CLASE SESSION MODEL
 		
 		if($rows>0)
 		{
-			// $_SESSION["usuario"]=$EmailCL;
+			 $_SESSION["usuario"]=$EmailCL;
                         return "login correcto"." ". $EmailCL;
                                
 		}
@@ -107,8 +107,9 @@ class sessionModel extends Model     //CLASE SESSION MODEL
 			return "login incorrecto";
 		}
 
-	}
-
+        }
+        
+       
         
 
 

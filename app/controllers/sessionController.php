@@ -80,7 +80,8 @@ class sessionController extends Controller {
          require_once(ROOT . DS . 'app' . DS . 'models' . DS . 'sessionModel.php' );
 
          $insertarRegClub = new sessionModel;
-         echo json_encode($insertarRegClub->Reg_club($EmailCR,$PassCR));
+        //  echo json_encode($insertarRegClub->Reg_club($EmailCR,$PassCR));
+        $insertarRegClub->Reg_club($EmailCR,$PassCR);
      }
      else{
          header('location:'. BASE_DOMAIN_DIR_URL . 'webroot/404.php');
@@ -114,4 +115,15 @@ class sessionController extends Controller {
 
 
      }
+
+     public function salir(){
+        if(isset($_SESSION["usuario"]))
+         {
+            unset($_SESSION["usuario"]);
+    //    session_destroy();
+                        //header('location:'. BASE_DOMAIN_DIR_URL . 'home/index.php');
+        $this->render('index');
+        }
+    }
+
 }
