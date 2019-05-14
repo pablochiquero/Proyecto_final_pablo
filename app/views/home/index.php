@@ -25,7 +25,7 @@
                  </div>
                </div>
                <div class="carousel-item">
-                 <img src="webroot/img/3.jpeg" class="d-block w-100" alt="...">
+                 <img src="webroot/img/5.jpeg" class="d-block w-100" alt="...">
                  <div class="carousel-caption d-none d-md-block">
                    <h5>alba sanchez</h5>
                    <p>Guitarra</p>
@@ -39,7 +39,7 @@
                  </div>
                </div>
                <div class="carousel-item">
-                  <img src="webroot/img/3.jpeg" class="d-block w-100" alt="...">
+                  <img src="webroot/img/5.jpeg" class="d-block w-100" alt="...">
                   <div class="carousel-caption d-none d-md-block">
                     <h5>Third slide label</h5>
                     <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
@@ -84,7 +84,7 @@
         <div class="proximoseventos">
             
           <div class="card" style="width: 18rem;"> <!--  TARJETA QUE LUEGO NO IRA AQUI YA QUE SERA DINAMICA -->
-                  <img src="webroot/img/3.jpeg" class="card-img-top" alt="...">
+                  <img src="webroot/img/5.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Card title</h5>
                       <p class="card-text">Texto dinamico que creara el propio cliente</p>
@@ -93,7 +93,7 @@
             </div>
 
             <div class="card" style="width: 18rem;"> <!--  TARJETA QUE LUEGO NO IRA AQUI YA QUE SERA DINAMICA -->
-                <img src="webroot/img/3.jpeg" class="card-img-top" alt="...">
+                <img src="webroot/img/5.jpeg" class="card-img-top" alt="...">
                   <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">Texto dinamico que creara el propio cliente</p>
@@ -102,7 +102,7 @@
             </div>
 
             <div class="card" style="width: 18rem;"> <!--  TARJETA QUE LUEGO NO IRA AQUI YA QUE SERA DINAMICA -->
-              <img src="webroot/img/3.jpeg" class="card-img-top" alt="...">
+              <img src="webroot/img/5.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
                   <p class="card-text">Texto dinamico que creara el propio cliente</p>
@@ -111,7 +111,7 @@
             </div>
 
             <div class="card" style="width: 18rem;"> <!--  TARJETA QUE LUEGO NO IRA AQUI YA QUE SERA DINAMICA -->
-            <img src="webroot/img/3.jpeg" class="card-img-top" alt="...">
+            <img src="webroot/img/5.jpeg" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Texto dinamico que creara el propio cliente</p>

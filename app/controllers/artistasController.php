@@ -8,29 +8,29 @@ class artistasController extends Controller {
 
     }
 
-    public function SearchArtista(){
+    // public function SearchArtista(){
         
-		if(isset($_POST["SearchArtista"])){
+	// 	if(isset($_POST["SearchArtista"])){
 			
            
 
-            $Search=Security::secure_input($_POST["SearchArtista"]);
+    //         $Search=Security::secure_input($_POST["SearchArtista"]);
            
 
  
  
         
-             require_once(ROOT . DS . 'app' . DS . 'models' . DS . 'artistaModel.php' );
+    //          require_once(ROOT . DS . 'app' . DS . 'models' . DS . 'artistaModel.php' );
  
-             $selectartista = new artistaModel;
-             echo json_encode($selectartista->search_artista($Search));
+    //          $selectartista = new artistaModel;
+    //          echo json_encode($selectartista->search_artista($Search));
 		
-		}
-		else{
-            return "no existen coincidencias";
+	// 	}
+	// 	else{
+    //         return "no existen coincidencias";
 
-		};
-    }
+	// 	};
+    // }
 
 		
 

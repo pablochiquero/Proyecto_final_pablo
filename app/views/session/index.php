@@ -8,6 +8,11 @@
   <form method="post" class="ffreg" id="regArt">
         <h1>Registro Artista!</h1>
 
+        <div class="form-group"> <!--  NOMBRE  REG ART-->
+            <label for="exampleInputName2">Nombre</label> 
+            <input type="text" class="form-control" id="NameArtistaReg" name="NameAR" >
+          </div>
+
           <div class="form-group"> <!--  EMAIL  REG ART-->
               <label for="exampleInputEmail1">Email artista</label> 
               <input type="email" class="form-control" id="EmailArtistaReg" aria-describedby="emailHelp" name="EmailAR">   
@@ -29,6 +34,11 @@
       <!-- LOGIN ARTISTA -->
         <form method="post" class="ffreg" id="logArt" >
             <h1>Login Artista!</h1>
+
+            <div class="form-group"> <!--  NOMBRE  LOG ART-->
+            <label for="exampleInputNamelog2">Nombre</label> 
+            <input type="text" class="form-control" id="NameArtistaLog" name="NameAL" >
+          </div>
           <div class="form-group">   <!--  EMAIL LOG ART-->
               <label for="exampleInputEmail1">Email artista</label> 
               <input type="email" class="form-control" id="EmailArtistaLog" aria-describedby="emailHelp" name="EmailAL" >   
@@ -61,6 +71,12 @@
         <!-- REGISTRO CLUB -->
         <form method="post" class="ffreg" id="regClub">
         <h1>Registro Club!</h1>
+
+        <div class="form-group"> <!--  NOMBRE  REG CLUB-->
+            <label for="exampleInputNameClubreg2">Nombre</label> 
+            <input type="text" class="form-control" id="NameClubReg" name="NameCR" >
+          </div>
+
         
           <div class="form-group">  <!--  EMAIL REG CLUB-->
               <label for="exampleInputEmail1">Email club</label> 
@@ -85,6 +101,11 @@
     
       <form method="post" class="ffreg" id="logClub" >
             <h1>Login Club!</h1>
+
+            <div class="form-group"> <!--  NOMBRE  LOG CLUB-->
+            <label for="exampleInputNameClublog2">Nombre</label> 
+            <input type="text" class="form-control" id="NameClubLog" name="NameCL" >
+          </div>
 
             <div class="form-group">  <!--  EMAIL LOG CLUB-->
               <label for="exampleInputEmail1">Email club</label>  

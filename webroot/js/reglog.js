@@ -33,7 +33,7 @@ $(document).ready(function()
         $("#registrarArt").click(function()  //<-- BOTON REG ARTISTA
         {  
                 msg="";
-                if($("#NameArtistaReg").val() == ""){ // <-- VALIDACIÓN DE NOMBRE REG ARTISTAasd
+                if($("#NameArtistaReg").val() == ""){ // <-- VALIDACIÓN DE NOMBRE REG ARTISTA
                     msg+="Rellene el campo Nombre <br>";                
                     $("#NameArtistaReg").addClass('error-validation');
 
@@ -41,6 +41,14 @@ $(document).ready(function()
                     $("#NameArtistaReg").removeClass('error-validation');
                 
                 }
+                if($("#EmailArtistaReg").val() == ""){     // <-- VALIDACIÓN DE EMAIL REG ARTISTA
+                    msg+= " Rellene el campo Email <br>";
+                    $("#EmailArtistaReg").addClass('error-validation');
+                }
+                else{
+                    $("#EmailArtistaReg").removeClass('error-validation');
+                
+                } 
                 if($("#PassArtistaReg").val() == ""){  // <-- VALIDACIÓN DE PASS REG ARTISTA
                     msg+= " Rellene el campo Password <br>";               
                     $("#PassArtistaReg").addClass('error-validation');
@@ -48,15 +56,6 @@ $(document).ready(function()
                 else{
                     $("#PassArtistaReg").removeClass('error-validation');
                     
-                
-                } 
-                
-                if($("#EmailArtistaReg").val() == ""){     // <-- VALIDACIÓN DE EMAIL REG ARTISTA
-                    msg+= " Rellene el campo Email <br>";
-                    $("#EmailArtistaReg").addClass('error-validation');
-                }
-                else{
-                    $("#EmailArtistaReg").removeClass('error-validation');
                 
                 }  
 
@@ -99,6 +98,14 @@ $(document).ready(function()
             {
 
                 msg="";
+                if($("#NameArtistaLog").val() == ""){ // <-- VALIDACIÓN DE NOMBRE REG ARTISTAasd
+                    msg+="Rellene el campo Nombre <br>";                
+                    $("#NameArtistaLog").addClass('error-validation');
+
+                } else{
+                    $("#NameArtistaLog").removeClass('error-validation');
+                
+                }
                 if($("#EmailArtistaLog").val() == ""){  // <-- VALIDACIÓN DE EMAIL LOGIN ARTISTA
                     msg+= " Rellene el campo Email <br>";
                 
@@ -137,7 +144,15 @@ $(document).ready(function()
                         },
 
                         success:function(data){
-                            $(".errorsArtistaLog").html(data);
+                            if(data!="false")
+                            {
+                                $(".errorsArtistaLog").html("Login correcto, redirigiendo...");
+                                setTimeout(function(){ location.href="home/index" }, 2000);
+                            }
+                            else
+                            {
+                                $(".errorsArtistaLog").html("Login erroneo.");
+                            }
                         },
 
                         error: function(){
@@ -193,16 +208,6 @@ $(document).ready(function()
                     $("#NameClubReg").removeClass('error-validation');
                 
                 }
-                if($("#PassClubReg").val() == ""){      // <-- VALIDACIÓN DE PASS REG CLUB
-                    msg+= " Rellene el campo Password <br>";
-                
-                    $("#PassClubReg").addClass('error-validation');
-                }
-                else{
-                    $("#PassClubReg").removeClass('error-validation');
-                
-                } 
-                
                 if($("#EmailClubReg").val() == ""){     // <-- VALIDACIÓN DE EMAIL REG CLUB
                     msg+= " Rellene el campo Email <br>";
                 
@@ -212,6 +217,15 @@ $(document).ready(function()
                     $("#EmailClubReg").removeClass('error-validation');
                 
                 }  
+                if($("#PassClubReg").val() == ""){      // <-- VALIDACIÓN DE PASS REG CLUB
+                    msg+= " Rellene el campo Password <br>";
+                
+                    $("#PassClubReg").addClass('error-validation');
+                }
+                else{
+                    $("#PassClubReg").removeClass('error-validation');
+                
+                } 
 
                 $(".errorsClubReg").html(msg);           // <-- CONTENEDOR DE ERRORS DE REG CLUB
 
@@ -250,8 +264,16 @@ $(document).ready(function()
         $("#entrarClub").click(function(){
 
             msg="";
+            if($("#NameClubLog").val()==""){        // <-- VALIDACIÓN DE NOMBRE REG CLUB
+                msg+="Rellene el campo Nombre <br>";
+                $("#NameClubLog").addClass('error-validation');
+
+            } else{
+                $("#NameClubLog").removeClass('error-validation');
+            
+            }
             if($("#EmailClubLog").val() == ""){  // <-- VALIDACIÓN DE EMAIL LOG CLUB
-                msg+= " Rellene el campo Nombre <br>";
+                msg+= " Rellene el campo Email <br>";
             
                 $("#EmailClubLog").addClass('error-validation');
             }
@@ -287,7 +309,16 @@ $(document).ready(function()
                     },
 
                     success:function(data){
-                        $(".errorsClubLog").html(data);
+                        // $(".errorsClubLog").html(data);
+                        if(data!="false")
+                        {
+                            $(".errorsClubLog").html("Login correcto, redirigiendo...");
+                            setTimeout(function(){ location.href="home/index" }, 2000);
+                        }
+                        else
+                        {
+                            $(".errorsClubLog").html("Login erroneo.");
+                        }
                     },
 
                     error: function(){
