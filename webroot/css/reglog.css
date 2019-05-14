@@ -1,27 +1,12 @@
 
     /* FORMULARIOS DE REGISTRO */
-
-    .cont-LR-artista{
-        float: left;
-        width: 45%;
-        padding: 1rem;
-    }
-    .cont-LR-club{
-        float: left;
-        width: 45%;
-        padding: 1rem;
-    }
-
-.ffreg{
-    
-    width: 100%;
-    margin:  1rem auto;
-    border: 1px solid grey;
+.Content-form{
     padding: 1rem;
-    border-radius: 10px;  
 }
 
-
+.form-group{
+    padding: 0.5rem!important;
+}
 .form-control {
   
     width: 50%!important;
@@ -58,7 +43,4 @@
 .error-validation{
     border: 1px solid red!important;
 }
-/* .errors{
-    width: 40%;
-    
-} */
+

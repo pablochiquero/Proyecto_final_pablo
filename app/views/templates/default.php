@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="webroot/css/bootstrap.min.css">
     <link rel="stylesheet" href="webroot/css/estilos.css">
     <link rel="stylesheet" href="webroot/css/reglog.css">
+    <link rel="stylesheet" href="webroot/css/perfiles.css">
+    
     
     <script src="webroot/js/jquery-3.3.1.min.js"></script>
     <!-- <script src="webroot/js/home.js"></script> -->
@@ -53,12 +55,14 @@ else{
 
   <?php echo $content_for_layout;?>           <!--   HOME/INDEX -->                                      
                   
+
+  <div class="clear" ></div>
 </main>
                 
 
 
 
-    <div class="clear"></div>
+
 
 <footer class="foot">         <!--   FOOTER -->
     <div  class="col-4">

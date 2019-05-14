@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+.cont-form-art{
+
+        width: 60%;
+        margin: 4rem auto;
+        border: 1px solid white!important;
+        text-align: center;
+        font-family: 'Indie Flower', cursive;
+        padding: 1rem;
+        background-color: #f2f2f2!important;
+    
+ 
+}
+
+.cont-form-art:hover{
+  
+    box-shadow: 5px 3px 10px gray!important;
+    border: 0.5px solid white!important;
+   
+}
+
+.btn-grp{
+    width: 20%;
+}
+
