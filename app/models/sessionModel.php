@@ -81,7 +81,8 @@ class sessionModel extends Model     //CLASE SESSION MODEL
                 }
                 else
                 {
-                        echo json_encode("Registro correcto."." ".$NameCR);
+                        //echo json_decode('Registro correcto.'.'" "'.$NameCR);
+                         echo json_encode('Registro correcto.');
                 }
                                
                    

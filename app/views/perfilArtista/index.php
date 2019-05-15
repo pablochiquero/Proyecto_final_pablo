@@ -1,5 +1,11 @@
 <?php defined('BASEPATH') or exit ('No se permite acceso directo');?>
 
+<?php 
+                        
+                        
+                        
+                        ?>
+
 <form action="" method="post" class="cont-form-art">
 
     <h1 class="tittle">Crea tu perfil.</h1>
@@ -33,58 +39,48 @@
         </div>
 
         <hr>
-        <div class="col-6">
-        <div class="input-group-prepend"><!-- GENERO -->
-            <span class="input-group-text" id="Número">Genero</span>
-            <select class="form-control" id="exampleFormControlSelect1">
-            <option > Elige un Genero </option>
-                <option>Musical</option>
-                <option>Arte</option>
-                <option>Baile</option>
-                <option>Interpretación</option>
-                <option></option>
+
+        <div class="col-12">
+                <div class="input-group-prepend" class="col-6">  <!--<GENERO -->
+                <span class="input-group-text" id="Número">Género</span>
+
+                <select name="generos" id="generos">
+                <optgroup label="Elige tu genero">
+                <?php foreach($generos as $value){ ?>   <!-- HACEMOS UN FOREACH PARA RECORRER LA VARIABLE DONDE ALMACENAMOS LA ARRAY RECOGIDA DE LA TABLA GENEROS-->
+                    
+                        <option value="<?php echo $value['idGeneros']; ?>"> 
+                            <?php echo $value['Nombre']; ?>      <!-- INSERTAMOS DE FORMA DINAMICA TODOS LOS TIPOS DE GENEROS -->
+                        </option> 
+                <?php } ?>
                 </select>
+                            
+                </div>
+
+            <div class="input-group-prepend" class="col-6">  <!--<CATEGORIA -->
+            <span class="input-group-text">Categoria</span>
+
+            <select name="categoria" id="categoria">
+            
+            </select>
+                        
+            </div>
         </div>
-        </div>
-
-        <hr>
-
-
-
-        <hr>
+<!-- 
         <div class="col-6">
-       <div class="input-group-prepend"> <!-- CATEGORIA -->
-            <span class="input-group-text" id="Número">Categoria</span>
-            <select name="OS" class="form-control">
-        
-                <option selected value="0"> Elige una Categoría </option>
-                    <optgroup label="Musical"> 
-                    <option value="1">Dj</option> 
-                    <option value="2">Pop</option> 
-                    <option value="3">Rap</option> 
-                    <option value="4">Clasica</option> 
-                    <option value="5">Rock</option> 
-                </optgroup> 
-                <optgroup label="Arte"> 
-                    <option value="4">Fedora</option> 
-                    <option value="5">Debian</option> 
-                    <option value="6">Suse</option> 
-                </optgroup> 
-                <optgroup label="Baile"> 
-                    <option value="7">Fedora</option> 
-                    <option value="8">Debian</option> 
-                    <option value="9">Suse</option> 
-                </optgroup> 
-                <optgroup label="Interpretación"> 
-                    <option value="10">Fedora</option> 
-                    <option value="11">Debian</option> 
-                    <option value="12">Suse</option> 
-                </optgroup> 
-        </select>
-        </div>
+            <div class="input-group-prepend">  <CATEGORIA -->
+            <!-- <span class="input-group-text">Categoria</span>
+
+            <select name="categoria" id="categoria">
+            
+            </select>
+                        
+            </div>
         </div>
 
-        <hr>
+        <hr> --> 
+
+
+
   
         </form>
         

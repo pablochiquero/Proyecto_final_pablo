@@ -5,6 +5,9 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
 -- Schema BD_Proyecto
 -- -----------------------------------------------------
 DROP SCHEMA IF EXISTS `BD_Proyecto` ;
@@ -16,40 +19,17 @@ CREATE SCHEMA IF NOT EXISTS `BD_Proyecto` DEFAULT CHARACTER SET utf8 ;
 USE `BD_Proyecto` ;
 
 -- -----------------------------------------------------
--- Table `BD_Proyecto`.`UsuariosArtistas`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `BD_Proyecto`.`UsuariosArtistas` ;
-
-CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`UsuariosArtistas` (
-  `Id` INT NOT NULL AUTO_INCREMENT,
-  `Email` VARCHAR(100) NULL,
-  `Password` VARCHAR(45) NULL,
-  PRIMARY KEY (`Id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `BD_Proyecto`.`Generos`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `BD_Proyecto`.`Generos` ;
 
 CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`Generos` (
-  `idGeneros` INT NOT NULL AUTO_INCREMENT,
-  `Nombre` VARCHAR(45) NULL,
+  `idGeneros` INT NOT NULL,
+  `Nombre` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`idGeneros`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `BD_Proyecto`.`Generos`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `BD_Proyecto`.`Generos` ;
-
-CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`Generos` (
-  `idGeneros` INT NOT NULL AUTO_INCREMENT,
-  `Nombre` VARCHAR(45) NULL,
-  PRIMARY KEY (`idGeneros`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+AUTO_INCREMENT = 10
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -59,7 +39,7 @@ DROP TABLE IF EXISTS `BD_Proyecto`.`Categorias` ;
 
 CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`Categorias` (
   `idCategorias` INT NOT NULL AUTO_INCREMENT,
-  `NombreCategoria` VARCHAR(45) NULL,
+  `NombreCategoria` VARCHAR(45) NULL DEFAULT NULL,
   `idGeneros` INT NOT NULL,
   PRIMARY KEY (`idCategorias`),
   INDEX `fk_Categorias_Generos1_idx` (`idGeneros` ASC),
@@ -68,33 +48,9 @@ CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`Categorias` (
     REFERENCES `BD_Proyecto`.`Generos` (`idGeneros`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `BD_Proyecto`.`Artistas`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `BD_Proyecto`.`Artistas` ;
-
-CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`Artistas` (
-  `IdUsuarios` INT NOT NULL,
-  `Descripción` VARCHAR(100) NULL,
-  `Número` INT(9) NULL,
-  `idGeneros` INT NOT NULL,
-  `Nombre_Apellidos` VARCHAR(100) NULL,
-  PRIMARY KEY (`IdUsuarios`),
-  INDEX `fk_Artistas_Generos1_idx` (`idGeneros` ASC),
-  CONSTRAINT `fk_Artistas_Usuarios1`
-    FOREIGN KEY (`IdUsuarios`)
-    REFERENCES `BD_Proyecto`.`UsuariosArtistas` (`Id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Artistas_Generos1`
-    FOREIGN KEY (`idGeneros`)
-    REFERENCES `BD_Proyecto`.`Generos` (`idGeneros`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+AUTO_INCREMENT = 12
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -104,10 +60,12 @@ DROP TABLE IF EXISTS `BD_Proyecto`.`UsuariosClub` ;
 
 CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`UsuariosClub` (
   `idUsuariosClub` INT NOT NULL AUTO_INCREMENT,
-  `Email` VARCHAR(100) NULL,
-  `Password` VARCHAR(45) NULL,
+  `Email` VARCHAR(100) NULL DEFAULT NULL,
+  `Password` VARCHAR(45) NULL DEFAULT NULL,
+  `Nombre` VARCHAR(100) NULL,
   PRIMARY KEY (`idUsuariosClub`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -116,14 +74,55 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `BD_Proyecto`.`Club` ;
 
 CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`Club` (
+  `Descripción` VARCHAR(100) NULL DEFAULT NULL,
+  `Número` INT(9) NULL DEFAULT NULL,
   `idUsuariosClub` INT NOT NULL,
-  `Descripción` VARCHAR(100) NULL,
-  `Número` INT(9) NULL,
-  `Nombre_Club` VARCHAR(100) NULL,
-  PRIMARY KEY (`idUsuariosClub`),
-  CONSTRAINT `fk_table1_UsuariosClub1`
+  INDEX `fk_Club_UsuariosClub1_idx` (`idUsuariosClub` ASC),
+  CONSTRAINT `fk_Club_UsuariosClub1`
     FOREIGN KEY (`idUsuariosClub`)
     REFERENCES `BD_Proyecto`.`UsuariosClub` (`idUsuariosClub`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `BD_Proyecto`.`UsuariosArtistas`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `BD_Proyecto`.`UsuariosArtistas` ;
+
+CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`UsuariosArtistas` (
+  `idUsuariosArtistas` INT NOT NULL AUTO_INCREMENT,
+  `Email` VARCHAR(100) NULL,
+  `Nombre` VARCHAR(45) NULL,
+  `Password` VARCHAR(45) NULL,
+  PRIMARY KEY (`idUsuariosArtistas`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `BD_Proyecto`.`perfilArtistas`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `BD_Proyecto`.`perfilArtistas` ;
+
+CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`perfilArtistas` (
+  `idUsuariosArtistas` INT NOT NULL,
+  `idGeneros` INT NOT NULL,
+  `NombreArtistico` VARCHAR(45) NULL,
+  `Descripción` VARCHAR(100) NULL,
+  `Número` INT NULL,
+  PRIMARY KEY (`idUsuariosArtistas`, `idGeneros`),
+  INDEX `fk_UsuariosArtistas_has_Generos_Generos1_idx` (`idGeneros` ASC),
+  INDEX `fk_UsuariosArtistas_has_Generos_UsuariosArtistas1_idx` (`idUsuariosArtistas` ASC),
+  CONSTRAINT `fk_UsuariosArtistas_has_Generos_UsuariosArtistas1`
+    FOREIGN KEY (`idUsuariosArtistas`)
+    REFERENCES `BD_Proyecto`.`UsuariosArtistas` (`idUsuariosArtistas`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_UsuariosArtistas_has_Generos_Generos1`
+    FOREIGN KEY (`idGeneros`)
+    REFERENCES `BD_Proyecto`.`Generos` (`idGeneros`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -134,39 +133,14 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
--- Data for table `BD_Proyecto`.`UsuariosArtistas`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `BD_Proyecto`;
-INSERT INTO `BD_Proyecto`.`UsuariosArtistas` (`Id`, `Email`, `Password`) VALUES (DEFAULT, 'Pablo', NULL);
-INSERT INTO `BD_Proyecto`.`UsuariosArtistas` (`Id`, `Email`, `Password`) VALUES (DEFAULT, 'asd', NULL);
-
-COMMIT;
-
-
--- -----------------------------------------------------
 -- Data for table `BD_Proyecto`.`Generos`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `BD_Proyecto`;
-INSERT INTO `BD_Proyecto`.`Generos` (`idGeneros`, `Nombre`) VALUES (DEFAULT, 'Musica');
-INSERT INTO `BD_Proyecto`.`Generos` (`idGeneros`, `Nombre`) VALUES (DEFAULT, 'Baile');
-INSERT INTO `BD_Proyecto`.`Generos` (`idGeneros`, `Nombre`) VALUES (DEFAULT, 'Pintura');
-INSERT INTO `BD_Proyecto`.`Generos` (`idGeneros`, `Nombre`) VALUES (DEFAULT, 'Fotografia');
-INSERT INTO `BD_Proyecto`.`Generos` (`idGeneros`, `Nombre`) VALUES (DEFAULT, 'Interpretativo');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `BD_Proyecto`.`Generos`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `BD_Proyecto`;
-INSERT INTO `BD_Proyecto`.`Generos` (`idGeneros`, `Nombre`) VALUES (DEFAULT, 'Musica');
-INSERT INTO `BD_Proyecto`.`Generos` (`idGeneros`, `Nombre`) VALUES (DEFAULT, 'Baile');
-INSERT INTO `BD_Proyecto`.`Generos` (`idGeneros`, `Nombre`) VALUES (DEFAULT, 'Interpretación');
-INSERT INTO `BD_Proyecto`.`Generos` (`idGeneros`, `Nombre`) VALUES (DEFAULT, 'Pintura');
+INSERT INTO `BD_Proyecto`.`Generos` (`idGeneros`, `Nombre`) VALUES (1, 'Musical');
+INSERT INTO `BD_Proyecto`.`Generos` (`idGeneros`, `Nombre`) VALUES (2, 'Arte');
+INSERT INTO `BD_Proyecto`.`Generos` (`idGeneros`, `Nombre`) VALUES (3, 'Baile');
+INSERT INTO `BD_Proyecto`.`Generos` (`idGeneros`, `Nombre`) VALUES (4, 'Interpretación');
 
 COMMIT;
 
@@ -176,22 +150,73 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `BD_Proyecto`;
-INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (1, 'Rap', 1);
-INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (2, 'Pop', 1);
-INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (3, 'Danza Moderna', 2);
-INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (4, 'Flamenco', 2);
-INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (5, 'Danza del Vientre', 2);
-INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (6, 'Actriz', 3);
-INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (7, 'Actor', 3);
-INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (8, 'Figurante', 3);
-INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (9, 'Pintura al Oleo', 4);
-INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (10, 'Pintura Lumínica', 4);
-INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (11, 'Realismo', 4);
+INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Dj', 1);
+INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Pop', 1);
+INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Rock', 1);
+INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Pintura al oleo', 2);
+INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Pintura luminica', 2);
+INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Pintor de auto retratos', 2);
+INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Break Dance', 3);
+INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Danza moderna', 3);
+INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Zumba', 3);
+INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Actriz', 4);
+INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Actor', 4);
+INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Figurante', 4);
 
 COMMIT;
 
-select*from  UsuariosArtistas;
 
-select*from  UsuariosClub;
+-- -----------------------------------------------------
+-- Data for table `BD_Proyecto`.`UsuariosClub`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `BD_Proyecto`;
+INSERT INTO `BD_Proyecto`.`UsuariosClub` (`idUsuariosClub`, `Email`, `Password`, `Nombre`) VALUES (DEFAULT, 'siatelo@gmail.com', 'siatelo', 'Siatelo');
+INSERT INTO `BD_Proyecto`.`UsuariosClub` (`idUsuariosClub`, `Email`, `Password`, `Nombre`) VALUES (DEFAULT, 'gorgroup@gmail.com', 'gor', 'Gorgroup');
 
-delete from UsuariosArtistas where id>0;
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `BD_Proyecto`.`Club`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `BD_Proyecto`;
+INSERT INTO `BD_Proyecto`.`Club` (`Descripción`, `Número`, `idUsuariosClub`) VALUES ('asdasdasdasd', 651471031, 1);
+INSERT INTO `BD_Proyecto`.`Club` (`Descripción`, `Número`, `idUsuariosClub`) VALUES ('rtetreterte', 651471031, 2);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `BD_Proyecto`.`UsuariosArtistas`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `BD_Proyecto`;
+INSERT INTO `BD_Proyecto`.`UsuariosArtistas` (`idUsuariosArtistas`, `Email`, `Nombre`, `Password`) VALUES (DEFAULT, '06chiquero@gmail.com', 'Pablo Chiquero Mateo', 'todo');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `BD_Proyecto`.`perfilArtistas`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `BD_Proyecto`;
+INSERT INTO `BD_Proyecto`.`perfilArtistas` (`idUsuariosArtistas`, `idGeneros`, `NombreArtistico`, `Descripción`, `Número`) VALUES (1, 1, 'Pable', 'asdasdasdasdasdasdas', 651471031);
+
+COMMIT;
+
+
+select * from usuariosartistas,perfilartistas;
+
+
+DELETE FROM GENEROS WHERE Idgeneros = 5;
+SELECT * FROM GENEROS;
+
+
+
+
+
+
+
