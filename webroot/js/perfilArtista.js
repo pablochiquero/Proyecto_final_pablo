@@ -22,8 +22,8 @@ $(document).ready(function()
 											{
 
 									// divContent+='<option >';
-												
-												// divContent+='<option>' +data[i]["categorias"]+ '</option> ';
+{/* <optgroup label="Elige tu genero"> */}
+												 divContent+="<optgroup label='Elige tu genero'>"; 
 												divContent+='<option>'+datos[i].NombreCategoria+'</option>';
 												// divContent+='<h3>'+"Fecha de nacimiento"+'</h3>';
 												// divContent+='<p>'+data[i]["fecha_nacimiento"]+'</p>';

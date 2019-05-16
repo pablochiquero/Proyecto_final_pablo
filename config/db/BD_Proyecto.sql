@@ -214,9 +214,33 @@ select * from usuariosartistas,perfilartistas;
 DELETE FROM GENEROS WHERE Idgeneros = 5;
 SELECT * FROM GENEROS;
 
+SELECT * FROM Club;
+
+select *from UsuariosClub;
+
+select *from UsuariosClub, Club;
+
+
+delete from club where idUsuariosClub>0;
+
+-- INSERT EN TABLA CLUB 
+
+INSERT INTO Club (`Descripción`, `Número`, `idUsuariosClub`) VALUES ('Maravilloso local en el que encontraras una especialidad en la comida Indu mientras disfrutas de unos
+espectaculos increibles', 651471032, 1);
+
+INSERT INTO Club (`Descripción`, `Número`, `idUsuariosClub`) VALUES ('Maravilloso local en el que encontraras una especialidad en la comida Indu mientras disfrutas de unos
+espectaculos increibles', 651471032, 2);
+
+INSERT INTO Club (`Descripción`, `Número`, `idUsuariosClub`) VALUES ('Maravilloso local en el que encontraras una especialidad en la comida Indu mientras disfrutas de unos
+espectaculos increibles', 651471032, 3);
+
+INSERT INTO Club (`Descripción`, `Número`, `idUsuariosClub`) VALUES ('Maravilloso local en el que encontraras una especialidad en la comida Indu mientras disfrutas de unos
+espectaculos increibles', 651471032, 4);
 
 
 
+INSERT INTO `BD_Proyecto`.`UsuariosArtistas` (`idUsuariosArtistas`, `Email`, `Nombre`, `Password`) VALUES (DEFAULT, 'albadm21@gmail.com', 'Alaba Delgado Manzano', 'alba');
 
+delete from UsuariosArtistas where idUsuariosArtistas=8;
 
 

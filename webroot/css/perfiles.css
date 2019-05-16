@@ -35,3 +35,15 @@
     width: 100%!important;
 }
 
+
+ .img-box{                  /* IMAGEN */
+	margin: 20px 0;
+	text-align: center;
+}
+.img-box img{
+	width: 80px;
+}
+#user-img-file{
+	display: none;
+}
+

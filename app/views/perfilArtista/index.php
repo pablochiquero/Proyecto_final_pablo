@@ -65,20 +65,14 @@
                         
             </div>
         </div>
-<!-- 
-        <div class="col-6">
-            <div class="input-group-prepend">  <CATEGORIA -->
-            <!-- <span class="input-group-text">Categoria</span>
 
-            <select name="categoria" id="categoria">
-            
-            </select>
-                        
-            </div>
-        </div>
-
-        <hr> --> 
-
+        <div class="img-box">           <!--IMG-->
+				<img src="<?php echo $userData['image'];?>" id="user-img">
+				<input type="file" id="user-img-file" name="user-img-file">
+				<label for="user-img-file" class="center">
+					Click aquí para subir imagen (2MB máx).
+				</label>
+			</div>
 
 
   
