@@ -118,7 +118,32 @@ class sessionModel extends Model     //CLASE SESSION MODEL
         
        
         
+        
+        public function Get_info()  //FUNCIÓN SELECIONAR ARTISTA PARA LOGIN EN BASE DE DATOS
+	{		
+		$connect = Model::getInstanceDB();
+                $sql ='SELECT * FROM UsuariosArtistas WHERE Nombre = :Nombre';
+                        
+                $stmt = $connect->prepare($sql);
 
+                $stmt->bindParam(':Nombre', $_SESSION["artista"]);  
+                
+               
+		
+                $stmt->execute();
+                $userData = $stmt->fetch(PDO::FETCH_ASSOC);  //<---------- PARA COGER LA IMG DE LA BD.
+
+                
+
+                return $userData;
+
+                
+	
+                         
+                       
+		
+
+	}
 
 
 

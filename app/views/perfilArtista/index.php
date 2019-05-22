@@ -61,10 +61,10 @@
         
 <hr>
         <!--  IMG ARTISTA -->            
-            
+        
             
             <div class="img-box" class="col-6">
-				<img src="<?php echo $userData['image'];?>" id="user-img">
+				<img src="<?php echo $userData['Imagen'];?>" id="user-img">
 				<input type="file" id="user-img-file" name="user-img-file">
 				<label for="user-img-file" class="center">
 					Click aquí para subir imagen (2MB máx).

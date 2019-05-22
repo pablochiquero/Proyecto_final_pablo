@@ -34,7 +34,7 @@ DROP TABLE IF EXISTS `BD_Proyecto`.`Generos` ;
 
 CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`Generos` (
   `idGeneros` INT NOT NULL,
-  `Nombre` VARCHAR(45) NULL DEFAULT NULL,
+  `Nombre` VARCHAR(45) NULL,
   PRIMARY KEY (`idGeneros`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 10
@@ -69,29 +69,13 @@ DROP TABLE IF EXISTS `BD_Proyecto`.`UsuariosClub` ;
 
 CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`UsuariosClub` (
   `idUsuariosClub` INT NOT NULL AUTO_INCREMENT,
-  `Email` VARCHAR(100) NULL DEFAULT NULL,
-  `Password` VARCHAR(45) NULL DEFAULT NULL,
-  `Nombre` VARCHAR(100) NULL,
-  PRIMARY KEY (`idUsuariosClub`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `BD_Proyecto`.`Club`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `BD_Proyecto`.`Club` ;
-
-CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`Club` (
+  `Email` VARCHAR(100) NOT NULL,
+  `Password` VARCHAR(45) NOT NULL,
+  `Nombre` VARCHAR(100) NOT NULL,
   `Descripción` VARCHAR(100) NULL DEFAULT NULL,
-  `Número` INT(9) NULL DEFAULT NULL,
-  `idUsuariosClub` INT NOT NULL,
-  INDEX `fk_Club_UsuariosClub1_idx` (`idUsuariosClub` ASC),
-  CONSTRAINT `fk_Club_UsuariosClub1`
-    FOREIGN KEY (`idUsuariosClub`)
-    REFERENCES `BD_Proyecto`.`UsuariosClub` (`idUsuariosClub`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  `Número` INT NULL DEFAULT NULL,
+  `Imagen` VARCHAR(200) NULL DEFAULT 'data-user/img/no-image.jpg',
+  PRIMARY KEY (`idUsuariosClub`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -103,35 +87,18 @@ DROP TABLE IF EXISTS `BD_Proyecto`.`UsuariosArtistas` ;
 
 CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`UsuariosArtistas` (
   `idUsuariosArtistas` INT NOT NULL AUTO_INCREMENT,
-  `Email` VARCHAR(100) NULL,
-  `Nombre` VARCHAR(45) NULL,
-  `Password` VARCHAR(45) NULL,
-  PRIMARY KEY (`idUsuariosArtistas`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `BD_Proyecto`.`perfilArtistas`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `BD_Proyecto`.`perfilArtistas` ;
-
-CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`perfilArtistas` (
-  `idUsuariosArtistas` INT NOT NULL,
-  `idGeneros` INT NOT NULL,
+  `Email` VARCHAR(100) NOT NULL,
+  `Nombre` VARCHAR(45) NOT NULL,
+  `Password` VARCHAR(45) NOT NULL,
   `NombreArtistico` VARCHAR(45) NULL,
   `Descripción` VARCHAR(100) NULL,
   `Número` INT NULL,
-  `Imagen` VARCHAR(200) NULL,
-  PRIMARY KEY (`idUsuariosArtistas`, `idGeneros`),
-  INDEX `fk_UsuariosArtistas_has_Generos_Generos1_idx` (`idGeneros` ASC),
-  INDEX `fk_UsuariosArtistas_has_Generos_UsuariosArtistas1_idx` (`idUsuariosArtistas` ASC),
-  CONSTRAINT `fk_UsuariosArtistas_has_Generos_UsuariosArtistas1`
-    FOREIGN KEY (`idUsuariosArtistas`)
-    REFERENCES `BD_Proyecto`.`UsuariosArtistas` (`idUsuariosArtistas`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_UsuariosArtistas_has_Generos_Generos1`
-    FOREIGN KEY (`idGeneros`)
+  `Imagen` VARCHAR(200) NULL DEFAULT 'data-user/img/no-image.jpg',
+  `idGenerosart` INT NULL,
+  PRIMARY KEY (`idUsuariosArtistas`),
+  INDEX `fk_UsuariosArtistas_Generos1_idx` (`idGenerosart` ASC),
+  CONSTRAINT `fk_UsuariosArtistas_Generos1`
+    FOREIGN KEY (`idGenerosart`)
     REFERENCES `BD_Proyecto`.`Generos` (`idGeneros`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -199,19 +166,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `BD_Proyecto`;
-INSERT INTO `BD_Proyecto`.`UsuariosClub` (`idUsuariosClub`, `Email`, `Password`, `Nombre`) VALUES (DEFAULT, 'siatelo@gmail.com', 'siatelo', 'Siatelo');
-INSERT INTO `BD_Proyecto`.`UsuariosClub` (`idUsuariosClub`, `Email`, `Password`, `Nombre`) VALUES (DEFAULT, 'gorgroup@gmail.com', 'gor', 'Gorgroup');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `BD_Proyecto`.`Club`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `BD_Proyecto`;
-INSERT INTO `BD_Proyecto`.`Club` (`Descripción`, `Número`, `idUsuariosClub`) VALUES ('asdasdasdasd', 651471031, 1);
-INSERT INTO `BD_Proyecto`.`Club` (`Descripción`, `Número`, `idUsuariosClub`) VALUES ('rtetreterte', 651471031, 2);
+INSERT INTO `BD_Proyecto`.`UsuariosClub` (`idUsuariosClub`, `Email`, `Password`, `Nombre`, `Descripción`, `Número`, `Imagen`) VALUES (DEFAULT, 'siatelo@gmail.com', 'siatelo', 'Siatelo', NULL, NULL, NULL);
+INSERT INTO `BD_Proyecto`.`UsuariosClub` (`idUsuariosClub`, `Email`, `Password`, `Nombre`, `Descripción`, `Número`, `Imagen`) VALUES (DEFAULT, 'gorgroup@gmail.com', 'gor', 'Gorgroup', NULL, NULL, NULL);
 
 COMMIT;
 
@@ -221,17 +177,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `BD_Proyecto`;
-INSERT INTO `BD_Proyecto`.`UsuariosArtistas` (`idUsuariosArtistas`, `Email`, `Nombre`, `Password`) VALUES (DEFAULT, '06chiquero@gmail.com', 'Pablo Chiquero Mateo', 'todo');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `BD_Proyecto`.`perfilArtistas`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `BD_Proyecto`;
-INSERT INTO `BD_Proyecto`.`perfilArtistas` (`idUsuariosArtistas`, `idGeneros`, `NombreArtistico`, `Descripción`, `Número`, `Imagen`) VALUES (1, 1, 'Pable', 'asdasdasdasdasdasdas', 651471031, NULL);
+INSERT INTO `BD_Proyecto`.`UsuariosArtistas` (`idUsuariosArtistas`, `Email`, `Nombre`, `Password`, `NombreArtistico`, `Descripción`, `Número`, `Imagen`, `idGenerosart`) VALUES (DEFAULT, '06chiquero@gmail.com', 'Pablo Chiquero Mateo', 'todo', NULL, NULL, NULL, NULL, NULL);
 
 COMMIT;
 

@@ -29,11 +29,23 @@ class perfilArtistaModel extends Model{
         return $categorias;
     }
 
+    public function Img_definida(){    //PARA PONER IMAGEN PREDEFINIDA EN EL FORMULARIO.
+        
+        $connect = Model::getInstanceDB(); 
+        
+        $sql = "SELECT imagen FROM  usuariosartistas";
+        $stmt = $connect->prepare($sql);
+        $stmt->execute();
 
-    public function insert($NameArtistico,$Descrip,$Number,$generos){
-        var_dump($NameArtistico);
-        var_dump($Descrip);
+        $userData = $stmt->fetch();
+        return $userData;
     }
+
+
+    // public function insert($NameArtistico,$Descrip,$Number,$generos){
+    //     var_dump($NameArtistico);
+    //     var_dump($Descrip);
+    // }
 
     // public function get_foto(){
 
