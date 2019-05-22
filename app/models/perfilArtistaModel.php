@@ -1,25 +1,23 @@
 <?php defined('BASEPATH') or exit ('No se permite acceso directo');
 
 
-class perfilArtistaModel extends Model{
+class perfilArtistaModel extends Model
+{
 
+            //GENEROS
     public function get_generos(){          //CREAMOS UNA FUNCIÓN PARA PODER REALIZAR LA CONSULTA
 
         $connect = Model::getInstanceDB();  //CONEX A LA BASE DE DATOS
-
         $sql ='SELECT * FROM Generos';     //CONSULTA PARA RECOGER LOS DATOS DE LA TABLA GENERO
-
         $stmt = $connect->prepare($sql);        
         $stmt->execute();
-       
         $generos = $stmt->fetchAll(PDO::FETCH_ASSOC);       
         return $generos;
-
-       
-      
-
     }
+
+                //CATEGORIAS
     public function get_categorias($a){
+
         $connect = Model::getInstanceDB();  //CONEX A LA BASE DE DATOS 
         $sql ='SELECT *  FROM Categorias WHERE idGeneros= :id';     //CONSULTA PARA RECOGER LOS DATOS DE LA TABLA CATEGORIAS
         $stmt = $connect->prepare($sql);        
@@ -29,17 +27,7 @@ class perfilArtistaModel extends Model{
         return $categorias;
     }
 
-    public function Img_definida(){    //PARA PONER IMAGEN PREDEFINIDA EN EL FORMULARIO.
-        
-        $connect = Model::getInstanceDB(); 
-        
-        $sql = "SELECT imagen FROM  usuariosartistas";
-        $stmt = $connect->prepare($sql);
-        $stmt->execute();
-
-        $userData = $stmt->fetch();
-        return $userData;
-    }
+ 
 
 
     // public function insert($NameArtistico,$Descrip,$Number,$generos){

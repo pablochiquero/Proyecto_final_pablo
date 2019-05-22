@@ -51,24 +51,24 @@ $(document).ready(function()
 			
 	  // ---------->  VALIDACIÓN PERFIL ARTISTA    <------------------
 
-		// function readURL(input) 
-		// {
-		// 	if (input.files && input.files[0])
-		// 	{
-		// 		var reader = new FileReader();
+		function readURL(input) 
+		{
+			if (input.files && input.files[0])
+			{
+				var reader = new FileReader();
 
-		// 		reader.onload = function(e) 
-		// 		{
-		// 			$('#user-img').attr('src', e.target.result);
-		// 		}
+				reader.onload = function(e) 
+				{
+					$('#user-img').attr('src', e.target.result);
+				}
 
-		// 		reader.readAsDataURL(input.files[0]);
-		// 	}
-		// }
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
 						
-		// $('#user-img-file').change(function(){
-		// 		readURL(this);
-		// });
+		$('#user-img-file').change(function(){
+				readURL(this);
+		});
 
 
 
@@ -76,22 +76,22 @@ $(document).ready(function()
 	  $("#perfil_btn").click(function()  //<-- BOTON REG PERFIL ARTISTA
 	  {  
 			msg="";
-			var Nombre = $('#NombreArtistico').val();
-			var Descrip = $('#Descrip').val();
-			var Numero = $('#Number').val();
-			var imgFile = $('input[type=file]')[0].files[0];
-			var formData = new FormData();
+			// var Nombre = $('#NombreArtistico').val();
+			// var Descrip = $('#Descrip').val();
+			// var Numero = $('#Number').val();
+			// var imgFile = $('input[type=file]')[0].files[0];
+			// var formData = new FormData();
 	
-			if(imgFile == null){
-				formData.append('NombreArtistico', Nombre);
-				formData.append('Descrip', Descrip);
-				formData.append('Number', Numero);
-			}else{
-				formData.append('user-img-file', imgFile);
-				formData.append('NombreArtistico', Nombre);
-				formData.append('Descrip', Descrip);
-				formData.append('Number', Numero);
-			}
+			// if(imgFile == null){
+			// 	formData.append('NombreArtistico', Nombre);
+			// 	formData.append('Descrip', Descrip);
+			// 	formData.append('Number', Numero);
+			// }else{
+			// 	formData.append('user-img-file', imgFile);
+			// 	formData.append('NombreArtistico', Nombre);
+			// 	formData.append('Descrip', Descrip);
+			// 	formData.append('Number', Numero);
+			// }
 			
 			if($("#NombreArtistico").val() == ""){ // <-- VALIDACIÓN DE NOMBRE REG PERFIL ARTISTA
 				  msg+="Rellene el campo Nombre Artistico <br>";                
