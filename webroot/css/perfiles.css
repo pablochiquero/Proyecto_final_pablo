@@ -36,14 +36,16 @@
 }
 
 
- .img-box{                  /* IMAGEN */
-	margin: 20px 0;
-	text-align: center;
+ .img-box{     /* IMAGEN */
+	margin: 20px 0; 
+    text-align: center;
+    width: 40%;
+    
 }
 .img-box img{
 	width: 80px;
 }
-#user-img-file{
-	display: none;
-}
+
+
+
 

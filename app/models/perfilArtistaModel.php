@@ -30,6 +30,23 @@ class perfilArtistaModel extends Model{
     }
 
 
+    public function insert($NameArtistico,$Descrip,$Number,$generos){
+        var_dump($NameArtistico);
+        var_dump($Descrip);
+    }
+
+    // public function get_foto(){
+
+    //     $connect = Model::getInstanceDB();
+    //     $sql ='SELECT image FROM perfilArtistas'; 
+    //     $stmt = $connect->prepare($sql);        
+    //     $stmt->execute();
+    //     $fotoPerfil = $stmt->fetch();
+    //     return $fotoPerfil;
+        
+    // }
+
+
 
 
 }

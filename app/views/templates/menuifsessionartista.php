@@ -22,7 +22,9 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <h1 class="logo"> Bienvenido a Siatelo <a href="perfil/index" class="etexus"><?php echo $_SESSION["artista"]?></a></h1> <a href="session/salir" class="etexus">salir</a>
+            <h1 class="logo"> Bienvenido a Siatelo <a href="perfil/index" class="etexus"><?php echo $_SESSION["artista"]?></a></h1> 
+            <!-- <img src="<?php //echo $userData['image'];?>"> -->
+            <a href="session/salir" class="etexus">salir</a>
         </nav>
 
     </div> 

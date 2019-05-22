@@ -45,7 +45,7 @@ class sessionController extends Controller {
 
             $PassAL=Security::secure_input($_POST["PassAL"]);
             $PassAL=Security::en_de_cryptIt($PassAL,'en');
-
+            
 
        
             require_once(ROOT . DS . 'app' . DS . 'models' . DS . 'sessionModel.php' );

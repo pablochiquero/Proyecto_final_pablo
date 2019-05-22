@@ -16,6 +16,15 @@ DROP SCHEMA IF EXISTS `BD_Proyecto` ;
 -- Schema BD_Proyecto
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `BD_Proyecto` DEFAULT CHARACTER SET utf8 ;
+-- -----------------------------------------------------
+-- Schema examen
+-- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `examen` ;
+
+-- -----------------------------------------------------
+-- Schema examen
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `examen` DEFAULT CHARACTER SET utf8 ;
 USE `BD_Proyecto` ;
 
 -- -----------------------------------------------------
@@ -112,6 +121,7 @@ CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`perfilArtistas` (
   `NombreArtistico` VARCHAR(45) NULL,
   `Descripción` VARCHAR(100) NULL,
   `Número` INT NULL,
+  `Imagen` VARCHAR(200) NULL,
   PRIMARY KEY (`idUsuariosArtistas`, `idGeneros`),
   INDEX `fk_UsuariosArtistas_has_Generos_Generos1_idx` (`idGeneros` ASC),
   INDEX `fk_UsuariosArtistas_has_Generos_UsuariosArtistas1_idx` (`idUsuariosArtistas` ASC),
@@ -126,6 +136,24 @@ CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`perfilArtistas` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+USE `examen` ;
+
+-- -----------------------------------------------------
+-- Table `examen`.`empleados`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `examen`.`empleados` ;
+
+CREATE TABLE IF NOT EXISTS `examen`.`empleados` (
+  `id` INT(11) NOT NULL,
+  `fecha_nacimiento` VARCHAR(10) NOT NULL,
+  `apellido` VARCHAR(100) NOT NULL,
+  `nombre` VARCHAR(100) NOT NULL,
+  `departamento` VARCHAR(1) NOT NULL,
+  `fecha_entrada` VARCHAR(10) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
@@ -203,44 +231,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `BD_Proyecto`;
-INSERT INTO `BD_Proyecto`.`perfilArtistas` (`idUsuariosArtistas`, `idGeneros`, `NombreArtistico`, `Descripción`, `Número`) VALUES (1, 1, 'Pable', 'asdasdasdasdasdasdas', 651471031);
+INSERT INTO `BD_Proyecto`.`perfilArtistas` (`idUsuariosArtistas`, `idGeneros`, `NombreArtistico`, `Descripción`, `Número`, `Imagen`) VALUES (1, 1, 'Pable', 'asdasdasdasdasdasdas', 651471031, NULL);
 
 COMMIT;
-
-
-select * from usuariosartistas,perfilartistas;
-
-
-DELETE FROM GENEROS WHERE Idgeneros = 5;
-SELECT * FROM GENEROS;
-
-SELECT * FROM Club;
-
-select *from UsuariosClub;
-
-select *from UsuariosClub, Club;
-
-
-delete from club where idUsuariosClub>0;
-
--- INSERT EN TABLA CLUB 
-
-INSERT INTO Club (`Descripción`, `Número`, `idUsuariosClub`) VALUES ('Maravilloso local en el que encontraras una especialidad en la comida Indu mientras disfrutas de unos
-espectaculos increibles', 651471032, 1);
-
-INSERT INTO Club (`Descripción`, `Número`, `idUsuariosClub`) VALUES ('Maravilloso local en el que encontraras una especialidad en la comida Indu mientras disfrutas de unos
-espectaculos increibles', 651471032, 2);
-
-INSERT INTO Club (`Descripción`, `Número`, `idUsuariosClub`) VALUES ('Maravilloso local en el que encontraras una especialidad en la comida Indu mientras disfrutas de unos
-espectaculos increibles', 651471032, 3);
-
-INSERT INTO Club (`Descripción`, `Número`, `idUsuariosClub`) VALUES ('Maravilloso local en el que encontraras una especialidad en la comida Indu mientras disfrutas de unos
-espectaculos increibles', 651471032, 4);
-
-
-
-INSERT INTO `BD_Proyecto`.`UsuariosArtistas` (`idUsuariosArtistas`, `Email`, `Nombre`, `Password`) VALUES (DEFAULT, 'albadm21@gmail.com', 'Alaba Delgado Manzano', 'alba');
-
-delete from UsuariosArtistas where idUsuariosArtistas=8;
-
 

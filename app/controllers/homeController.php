@@ -2,7 +2,7 @@
 
 class homeController extends Controller {
 
-    public function index() {
+    public function index(){
 
         $this->render('index');
 

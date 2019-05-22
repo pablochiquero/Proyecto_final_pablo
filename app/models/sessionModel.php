@@ -39,13 +39,14 @@ class sessionModel extends Model     //CLASE SESSION MODEL
                 $stmt->bindParam(':Nombre', $NameAL);       
 		$stmt->bindParam(':Email', $EmailAL);
 	        $stmt->bindParam(':Pass', $PassAL);
-		$stmt->execute();
+                $stmt->execute();
+                $userData = $stmt->fetch();  //<---------- PARA COGER LA IMG DE LA BD.
                 $rows = $stmt->rowCount();
                 $user=Security::en_de_cryptIt($NameAL,'de');
 		
 		if($rows>0)
 		{
-                        //$_SESSION["usuario"]=$NameAL;  
+                         
                         $_SESSION["artista"]=$NameAL;  //prueba para tener variable de session por artista
                         return true;
                         
@@ -81,7 +82,7 @@ class sessionModel extends Model     //CLASE SESSION MODEL
                 }
                 else
                 {
-                        //echo json_decode('Registro correcto.'.'" "'.$NameCR);
+                
                          echo json_encode('Registro correcto.');
                 }
                                

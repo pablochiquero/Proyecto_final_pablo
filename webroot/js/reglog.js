@@ -61,7 +61,7 @@ $(document).ready(function()
 
                 $(".errorsArtistaReg").html(msg);       // <-- CONTENEDOR DE ERRORS DE REG ARTISTA
 
-        //     //  ENVIO POR AJAX DE REGISTRO ARTISTA (DENTRO DE LA FUNCIÓN VALIDAR REGISTRO)
+                    //  ENVIO POR AJAX DE REGISTRO ARTISTA (DENTRO DE LA FUNCIÓN VALIDAR REGISTRO)
              if(msg == "")
             {
                
