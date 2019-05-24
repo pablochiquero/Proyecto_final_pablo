@@ -7,27 +7,40 @@ class sessionModel extends Model     //CLASE SESSION MODEL
 
         public function Reg_artista($NameAR,$EmailAR,$PassAR)     //FUNCIÓN REGISTRO ARTISTA EN BASE DE DATOS
         {    
-                $id = null;
+               
                 $connect = Model::getInstanceDB();
-                
-                $sql ='INSERT INTO UsuariosArtistas (`Nombre`,`Email`, `Password`) VALUES (:Nombre,:Email,:Pass)';
+
+                $sql ='SELECT * FROM UsuariosArtistas WHERE Email = :Email';
                 $stmt = $connect->prepare($sql);
-                
-                $stmt->bindParam(':Nombre', $NameAR);
                 $stmt->bindParam(':Email', $EmailAR);
-                $stmt->bindParam(':Pass', $PassAR);
-                
+                $stmt->execute();
+                $rows = $stmt->rowCount();
 
-                if(!$stmt->execute())
-                {
-                        echo json_encode("Datos incorrectos");
+                if($rows== 1){
+                        return "Email Ocupado";
                 }
-                else
-                {
-                        echo json_encode("Registro correcto."." ".$NameAR);
-                }
+
+
+                else{
+                        $id = null;
+                        $sql ='INSERT INTO UsuariosArtistas (`Nombre`,`Email`, `Password`) VALUES (:Nombre,:Email,:Pass)';
+                        $stmt = $connect->prepare($sql);
+                        
+                        $stmt->bindParam(':Nombre', $NameAR);
+                        $stmt->bindParam(':Email', $EmailAR);
+                        $stmt->bindParam(':Pass', $PassAR);
+                        
+
+                        if(!$stmt->execute())
+                        {
+                                echo json_encode("Datos incorrectos");
+                        }
+                        else
+                        {
+                                echo json_encode("Registro correcto."." ".$NameAR);
+                        }
             
-
+                }
         }
         public function Log_artista($NameAL,$EmailAL,$PassAL)  //FUNCIÓN SELECIONAR ARTISTA PARA LOGIN EN BASE DE DATOS
 	{		

@@ -76,22 +76,28 @@ $(document).ready(function()
 	  $("#perfil_btn").click(function()  //<-- BOTON REG PERFIL ARTISTA
 	  {  
 			msg="";
-			// var Nombre = $('#NombreArtistico').val();
-			// var Descrip = $('#Descrip').val();
-			// var Numero = $('#Number').val();
-			// var imgFile = $('input[type=file]')[0].files[0];
-			// var formData = new FormData();
+			var Nombre = $('#NombreArtistico').val();
+			var Descrip = $('#Descrip').val();
+			var Numero = $('#Number').val();
+			var Numero = $('#generos').val();
+			var Numero = $('#categoria').val();
+			var imgFile = $('input[type=file]')[0].files[0];
+			var formData = new FormData();
 	
-			// if(imgFile == null){
-			// 	formData.append('NombreArtistico', Nombre);
-			// 	formData.append('Descrip', Descrip);
-			// 	formData.append('Number', Numero);
-			// }else{
-			// 	formData.append('user-img-file', imgFile);
-			// 	formData.append('NombreArtistico', Nombre);
-			// 	formData.append('Descrip', Descrip);
-			// 	formData.append('Number', Numero);
-			// }
+			if(imgFile == null){
+				formData.append('NombreArtistico', Nombre);
+				formData.append('Descrip', Descrip);
+				formData.append('Number', Numero);
+				formData.append('generos', generos);
+				formData.append('categoria', categoria);
+			}else{
+				formData.append('user-img-file', imgFile);
+				formData.append('NombreArtistico', Nombre);
+				formData.append('Descrip', Descrip);
+				formData.append('Number', Numero);
+				formData.append('generos', generos);
+				formData.append('categoria', categoria);
+			}
 			
 			if($("#NombreArtistico").val() == ""){ // <-- VALIDACIÓN DE NOMBRE REG PERFIL ARTISTA
 				  msg+="Rellene el campo Nombre Artistico <br>";                
@@ -120,6 +126,25 @@ $(document).ready(function()
 				$("#Number").removeClass('error-validation');
 			
 			}
+
+			// if ($('#generos').val() === '') {		// <-- VALIDACIÓN DE GÉNERO REG PERFIL ARTISTA
+			
+			// 	msg+="Debe seleccionar una opción<br>"; 
+			// 	$("#generos").addClass('error-validation');
+		
+			// } else {
+				
+			// 	$("#generos").removeClass('error-validation');
+			// }
+
+			// if ($('#categoria').val() === '') {		// <-- VALIDACIÓN DE CATEGORIA REG PERFIL ARTISTA
+			// 	msg+="Debe seleccionar una opción<br>"; 
+			// 	$("#categoria").addClass('error-validation');
+		
+			// } else {
+				
+			// 	$("#categoria").removeClass('error-validation');
+			// }
 			  
 			
 
@@ -141,10 +166,15 @@ $(document).ready(function()
 					},
   
 					success: function(data){
+						if(data){
+							$("#errorsM").html("actualizado!");
+						}
+						else{
+							$("#errorsM").html("error!");
+						}
+						
   
-						$("#errorsM").html(data);
-  
-						//setTimeout(function(){ location.href = "muro.php"; }, 3000);
+						
 						
 					},
   

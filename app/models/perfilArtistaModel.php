@@ -29,24 +29,55 @@ class perfilArtistaModel extends Model
 
  
 
+                // INSERTAR DATOS FORMULARIO
+    public function insertImg($NameArtistico,$Descrip,$Number,$generos,$new_img)
+    {
+        // $connect = Model::getInstanceDB();
+        // $sql ='UPDATE usuariosartistas SET NombreArtistico = :NombreArtistico, Descripción= :Descripción, Número = :Número ,idGenerosart = :idGenerosart ,Imagen = :Imagen ';
 
-    // public function insert($NameArtistico,$Descrip,$Number,$generos){
-    //     var_dump($NameArtistico);
-    //     var_dump($Descrip);
-    // }
+        // $stmt = $connect->prepare($sql);
 
-    // public function get_foto(){
+        // $stmt->bindParam(":NombreArtistico", $NameArtistico);
+        // $stmt->bindParam(":Descripción", $Descrip);
+        // $stmt->bindParam(":Número", $Number);
+        // $stmt->bindParam(":idGenerosart", $generos);
+        // // $stmt->bindParam(":categoria", $categoria);
+        // $stmt->bindParam(":Imagen", $new_img);
 
-    //     $connect = Model::getInstanceDB();
-    //     $sql ='SELECT image FROM perfilArtistas'; 
-    //     $stmt = $connect->prepare($sql);        
-    //     $stmt->execute();
-    //     $fotoPerfil = $stmt->fetch();
-    //     return $fotoPerfil;
+        // if($stmt->execute()){
+        //     return true;
+        // }
+        // else{
+        //     return false;
+        // }
+
+
         
-    // }
+    }
 
+    
+    public function insert($NameArtistico,$Descrip,$Number,$generos)
+    {
+        // $connect = Model::getInstanceDB();
+        // $sql ='UPDATE usuariosartistas SET NombreArtistico = :NombreArtistico, Descripción= :Descripción, Número = :Número ,idGenerosart = :idGenerosart  ';
 
+        // $stmt = $connect->prepare($sql);
 
+        // $stmt->bindParam(":NombreArtistico", $NameArtistico);
+        // $stmt->bindParam(":Descripción", $Descrip);
+        // $stmt->bindParam(":Número", $Number);
+        // $stmt->bindParam(":idGenerosart", $generos);
+        //  // $stmt->bindParam(":categoria", $categoria);
+        
+
+        // if($stmt->execute()){
+        //     return true;
+        // }
+        // else{
+        //     return false;
+        // }
+  
+
+    }
 
 }

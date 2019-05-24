@@ -130,9 +130,9 @@ body{
 
                 /* FOOTER */
 .foot{
-    position: relative;
+    position: absolute;
     bottom: 0;
-    /* transform: translateY(100%); */
+     transform: translateY(100%); 
     width: 100%;
     font-size: 2rem;
     background-color: #f8f9fa!important; 

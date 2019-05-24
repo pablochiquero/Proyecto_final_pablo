@@ -56,8 +56,6 @@ else{
 
   <?php echo $content_for_layout;?>           <!--   HOME/INDEX -->                                      
                   
-
-  <div class="clear" ></div>
 </main>
                 
 
@@ -65,19 +63,19 @@ else{
 
 
 
-<footer class="foot">         <!--   FOOTER -->
-    <div  class="col-4">
-        <p ><?php echo date("Y");?> © Siatelo</p>
+<!-- <footer class="foot clear">           FOOTER -->
+    <!-- <div  class="col-4">
+        <p ><//?php echo date("Y");?> © Siatelo</p>
     </div>
-</footer>                                       
+</footer>                                        --> 
 
             
 
     
     <script src="webroot/js/popper.min.js"></script>
     <script src="webroot/js/bootstrap.min.js"></script>
-</body>
-
+   
+    </body>
 </html>
 
 

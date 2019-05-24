@@ -15,7 +15,8 @@ class sessionController extends Controller {
        {  
            
             $NameAR=Security::secure_input($_POST["NameAR"]);
-            $EmailAR=Security::secure_input($_POST["EmailAR"]);
+
+            $EmailAR=Security::secure_input($_POST["EmailAR"]); 
             $EmailAR=Security::en_de_cryptIt($EmailAR,'en');
 
             $PassAR=Security::secure_input($_POST["PassAR"]);

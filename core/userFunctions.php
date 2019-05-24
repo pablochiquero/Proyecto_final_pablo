@@ -34,7 +34,52 @@ removeMagicQuotes();
 unregisterGlobals(); 
 
 
-function insertImage($file, $imageName, $maxImageSize, $UrlFileServer, $usuario) {
+// function insertImage($file, $imageName, $maxImageSize, $UrlFileServer, $usuario) {
+
+// 	$fileTmpPath = $file['tmp_name'];
+//     $fileName = $file['name'];
+//     $fileSize = $file['size'];
+//     $fileType = $file['type'];
+//     $fileNameCmps = explode(".", $fileName);
+//     $fileExtension = strtolower(end($fileNameCmps));
+//     $newFileName = $imageName . '.' . $fileExtension;
+//     $allowedfileExtensions = array('jpg', 'jpeg', 'gif', 'png');
+//     $imageDbURL = $UrlFileServer . '/' . $usuario . '/' . $newFileName;
+
+//     if($fileSize > $maxImageSize) {
+
+//         return array('El tamaño de la imagen excede de 2MB. No se ha insertado la imagen...', false);
+
+//     } else if(!in_array($fileExtension, $allowedfileExtensions)) {
+
+//         return array('La extensión de la imagen tiene que ser de este tipo: (jpg, jpeg, gif, png). No se ha insertado la imagen...', false);
+
+//     } else {
+
+//         $dirPath = realpath(dirname(getcwd()));
+//         $dirPath = $dirPath . '/' . $UrlFileServer . '/' . $usuario;
+//         if(!is_dir($dirPath)) mkdir($dirPath, 0755, true);
+//         $destPath = $dirPath . '/' . $newFileName;
+//         $files = glob($dirPath . '/*'); 
+//         foreach($files as $file){
+//             if(is_file($file))
+//             unlink($file); 
+//         }
+
+//         if(move_uploaded_file($fileTmpPath, $destPath)) {
+
+//             return array('Imagen insertada correctamente...', true, $imageDbURL);
+
+//         } else {
+
+//             return array('Ha ocurrido un problema con la carga de la imagen. Inténtalo más tarde...', false);
+
+//         }
+
+// 	}
+// }
+
+function insertImage($file, $imageName, $maxImageSize, $UrlFileServer, $idUsuario) {
 
 	$fileTmpPath = $file['tmp_name'];
     $fileName = $file['name'];
@@ -44,7 +89,7 @@ function insertImage($file, $imageName, $maxImageSize, $UrlFileServer, $usuario)
     $fileExtension = strtolower(end($fileNameCmps));
     $newFileName = $imageName . '.' . $fileExtension;
     $allowedfileExtensions = array('jpg', 'jpeg', 'gif', 'png');
-    $imageDbURL = $UrlFileServer . '/' . $usuario . '/' . $newFileName;
+    $imageDbURL = $UrlFileServer . '/' . $idUsuario . '/' . $newFileName;
 
     if($fileSize > $maxImageSize) {
 
@@ -57,7 +102,7 @@ function insertImage($file, $imageName, $maxImageSize, $UrlFileServer, $usuario)
     } else {
 
         $dirPath = realpath(dirname(getcwd()));
-        $dirPath = $dirPath . '/' . $UrlFileServer . '/' . $usuario;
+        $dirPath = $dirPath . '/' . $UrlFileServer . '/' . $idUsuario;
         if(!is_dir($dirPath)) mkdir($dirPath, 0755, true);
         $destPath = $dirPath . '/' . $newFileName;
         $files = glob($dirPath . '/*'); 
@@ -68,13 +113,11 @@ function insertImage($file, $imageName, $maxImageSize, $UrlFileServer, $usuario)
 
         if(move_uploaded_file($fileTmpPath, $destPath)) {
 
-            return array('Imagen insertada correctamente...', true, $newFileName);
+            return array('Imagen insertada correctamente...', true, $imageDbURL);
 
         } else {
 
             return array('Ha ocurrido un problema con la carga de la imagen. Inténtalo más tarde...', false);
-
         }
-
-	}
+    }
 }

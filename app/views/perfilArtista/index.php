@@ -6,7 +6,7 @@
                         
                         ?>
       
-<form action="" method="post" id="RegPerfilArt" class="cont-form-art" enctype="multipart/form-data">
+<form method="post" id="RegPerfilArt" class="cont-form-art" enctype="multipart/form-data">
 
     <h1 class="tittle">Crea tu perfil.</h1>
 
@@ -35,7 +35,7 @@
             <select name="generos" id="generos">
                 <optgroup label="Elige tu genero">
                 <?php foreach($generos as $value){ ?>   <!-- HACEMOS UN FOREACH PARA RECORRER LA VARIABLE DONDE ALMACENAMOS LA ARRAY RECOGIDA DE LA TABLA GENEROS-->
-
+                    
                     <option  id ="generos" name="Generos" value="<?php echo $value['idGeneros']; ?>">     
                             <?php echo $value['Nombre']; ?>      <!-- INSERTAMOS DE FORMA DINAMICA TODOS LOS TIPOS DE GENEROS -->
                     </option> 
