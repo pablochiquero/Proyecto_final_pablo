@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`UsuariosArtistas` (
   `NombreArtistico` VARCHAR(45) NULL,
   `Descripción` VARCHAR(100) NULL,
   `Número` INT NULL,
-  `Imagen` VARCHAR(200) NULL DEFAULT 'data-user/img/no-image.jpg',
+  `Imagen` VARCHAR(200) NOT NULL DEFAULT 'data-user/img/no-image.jpg',
   `idGenerosart` INT NULL,
   PRIMARY KEY (`idUsuariosArtistas`),
   INDEX `fk_UsuariosArtistas_Generos1_idx` (`idGenerosart` ASC),
@@ -177,7 +177,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `BD_Proyecto`;
-INSERT INTO `BD_Proyecto`.`UsuariosArtistas` (`idUsuariosArtistas`, `Email`, `Nombre`, `Password`, `NombreArtistico`, `Descripción`, `Número`, `Imagen`, `idGenerosart`) VALUES (DEFAULT, '06chiquero@gmail.com', 'Pablo Chiquero Mateo', 'todo', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `BD_Proyecto`.`UsuariosArtistas` (`idUsuariosArtistas`, `Email`, `Nombre`, `Password`, `NombreArtistico`, `Descripción`, `Número`, `Imagen`, `idGenerosart`) VALUES (DEFAULT, '06chiquero@gmail.com', 'Pablo Chiquero Mateo', 'todo', NULL, NULL, NULL, DEFAULT, NULL);
 
 COMMIT;
 
+
+SELECT * FROM usuariosartistas;
+
+SELECT imagen FROM  usuariosartistas;

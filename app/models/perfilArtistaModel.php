@@ -30,53 +30,54 @@ class perfilArtistaModel extends Model
  
 
                 // INSERTAR DATOS FORMULARIO
-    public function insertImg($NameArtistico,$Descrip,$Number,$generos,$new_img)
+    public function insertImg($Nombre,$Descrip,$Number,$generos,$new_img)
     {
-        // $connect = Model::getInstanceDB();
-        // $sql ='UPDATE usuariosartistas SET NombreArtistico = :NombreArtistico, Descripción= :Descripción, Número = :Número ,idGenerosart = :idGenerosart ,Imagen = :Imagen ';
+        $connect = Model::getInstanceDB();
+        $sql ='UPDATE usuariosartistas SET NombreArtistico = :NombreArtistico, Descripción= :Descripción, Número = :Número ,idGenerosart = :idGenerosart ,Imagen = :Imagen ';
 
-        // $stmt = $connect->prepare($sql);
+        $stmt = $connect->prepare($sql);
 
-        // $stmt->bindParam(":NombreArtistico", $NameArtistico);
-        // $stmt->bindParam(":Descripción", $Descrip);
-        // $stmt->bindParam(":Número", $Number);
-        // $stmt->bindParam(":idGenerosart", $generos);
-        // // $stmt->bindParam(":categoria", $categoria);
-        // $stmt->bindParam(":Imagen", $new_img);
+        $stmt->bindParam(":NombreArtistico", $Nombre);
+        $stmt->bindParam(":Descripción", $Descrip);
+        $stmt->bindParam(":Número", $Number);
+        $stmt->bindParam(":idGenerosart", $generos);
+        // $stmt->bindParam(":categoria", $categoria);
+        $stmt->bindParam(":Imagen", $new_img);
 
-        // if($stmt->execute()){
-        //     return true;
-        // }
-        // else{
-        //     return false;
-        // }
+        if($stmt->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
 
 
         
     }
 
     
-    public function insert($NameArtistico,$Descrip,$Number,$generos)
+    public function insert($Nombre,$Descrip,$Number,$generos)
     {
-        // $connect = Model::getInstanceDB();
-        // $sql ='UPDATE usuariosartistas SET NombreArtistico = :NombreArtistico, Descripción= :Descripción, Número = :Número ,idGenerosart = :idGenerosart  ';
-
-        // $stmt = $connect->prepare($sql);
-
-        // $stmt->bindParam(":NombreArtistico", $NameArtistico);
-        // $stmt->bindParam(":Descripción", $Descrip);
-        // $stmt->bindParam(":Número", $Number);
-        // $stmt->bindParam(":idGenerosart", $generos);
-        //  // $stmt->bindParam(":categoria", $categoria);
+        $connect = Model::getInstanceDB();
         
+        $sql ='UPDATE usuariosartistas SET NombreArtistico = :NombreArtistico, Descripción= :Descripción, Número = :Número ,idGenerosart = :idGenerosart  ';
 
-        // if($stmt->execute()){
-        //     return true;
-        // }
-        // else{
-        //     return false;
-        // }
-  
+        $stmt = $connect->prepare($sql);
+
+        $stmt->bindParam(":NombreArtistico", $Nombre);
+        $stmt->bindParam(":Descripción", $Descrip);
+        $stmt->bindParam(":Número", $Number);
+        $stmt->bindParam(":idGenerosart", $generos);
+         // $stmt->bindParam(":categoria", $categoria);
+        
+         if($stmt->execute())
+         {
+             return true;
+ 
+         } else {
+ 
+             return false;
+         }
 
     }
 

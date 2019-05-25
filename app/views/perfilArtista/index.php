@@ -6,7 +6,7 @@
                         
                         ?>
       
-<form method="post" id="RegPerfilArt" class="cont-form-art" enctype="multipart/form-data">
+<form action="" method="post" id="RegPerfilArt" class="cont-form-art" enctype="multipart/form-data">
 
     <h1 class="tittle">Crea tu perfil.</h1>
 
@@ -15,7 +15,7 @@
 
             <!-- NOMBRE ARTISTICO -->
         <div class="input-group" >
-            <input type="text" id="NombreArtistico" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" name="NameArtistico" placeholder="Nombre Artístico">
+            <input type="text" id="Nombre" name="Nombre"  class="form-control"  aria-label="Username" aria-describedby="basic-addon1" placeholder="Nombre Artístico">
         </div>
 <hr>
             <!-- DESCRIPCIÓN -->
@@ -46,13 +46,13 @@
         </div>
  
         <!--<CATEGORIA -->
-        <div class="input-group-prepend" class="col-6">  
+        <!-- <div class="input-group-prepend" class="col-6">  
                 <span class="input-group-text">Categoria</span>  
                 <select name="categoria" id="categoria" name="Categoria"></select>               
         </div>
 
     </div>
-<hr>
+<hr> -->
 
         <!--  IMG ARTISTA -->            
             <div class="img-box" class="col-6">
