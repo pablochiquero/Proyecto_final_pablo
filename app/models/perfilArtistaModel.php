@@ -29,8 +29,9 @@ class perfilArtistaModel extends Model
 
 
 
-                // INSERTAR DATOS FORMULARIO
- public function insertImg($new_img,$Nombre,$Descrip,$Number,$generos,$usuario_sess)
+    //---------------------->version prueba------------------------
+
+ public function insertImg($new_img,$Nombre,$Descrip,$generos,$usuario_sess)
                     
   {
         
@@ -39,37 +40,72 @@ class perfilArtistaModel extends Model
         $connect = Model::getInstanceDB();
 
         
-$sql= "UPDATE UsuariosArtistas SET NombreArtistico = :NameArt, Descripción= :Descrip, Número = :Num ,idGenerosart = :Generos, Imagen = :Img WHERE  Nombre = :usuario";
+        $sql= "UPDATE UsuariosArtistas SET NombreArtistico = :NameArt, Descripción = :Descrip, idGenerosart = :Generos,  Imagen = :Img WHERE  Nombre = :usuario";
         $stmt = $connect->prepare($sql);
 
-        $stmt->bindParam(':NombreART', $Nombre);
-        $stmt->bindParam(':Descrip', $Descrip);
-        $stmt->bindParam(':Num', $Number);
-     
+      
+        $stmt->bindParam(':NameArt', $Nombre);
         $stmt->bindParam(':Generos', $generos);
-        // // $stmt->bindParam(':categoria', $categoria);
+        $stmt->bindParam(':Descrip', $Descrip);
         $stmt->bindParam(':Img', $new_img);
+
+        var_dump($Descrip);
+       
         $stmt->bindParam(':usuario', $usuario_sess);
 
-        
-        var_dump($Nombre);
-        var_dump($Descrip);
-        var_dump($Number);
-        var_dump($generos);
-        var_dump($usuario_sess);
-        var_dump($new_img);
-        
-
-        if($stmt->execute()){
-            return true;
-        }
-        else{
-            return false;
-        }
+        $stmt->execute();
 
 
         
     }
+
+  
+
+
+
+        // ----------------->ORIGINAL<-----------------------
+
+                // INSERTAR DATOS FORMULARIO
+//  public function insertImg($new_img,$Nombre,$Descrip,$Number,$generos,$usuario_sess)
+                    
+//   {
+        
+
+        
+//         $connect = Model::getInstanceDB();
+
+        
+//         $sql= "UPDATE UsuariosArtistas SET NombreArtistico = :NameArt, Descripción= :Descrip, Número = :Num ,idGenerosart = :Generos, Imagen = :Img WHERE  Nombre = :usuario";
+//         $stmt = $connect->prepare($sql);
+
+//         $stmt->bindParam(':NameArt', $Nombre);
+//         $stmt->bindParam(':Descrip', $Descrip);
+//         $stmt->bindParam(':Num', $Number);
+     
+//         $stmt->bindParam(':Generos', $generos);
+//         // // $stmt->bindParam(':categoria', $categoria);
+//         $stmt->bindParam(':Img', $new_img);
+//         $stmt->bindParam(':usuario', $usuario_sess);
+
+        
+//         var_dump($Nombre);
+//         var_dump($Descrip);
+//         var_dump($Number);
+//         var_dump($generos);
+//         var_dump($usuario_sess);
+//         var_dump($new_img);
+        
+
+//         if($stmt->execute()){
+//             return true;
+//         }
+//         else{
+//             return false;
+//         }
+
+
+        
+//     }
 
     
     // public function insert($Nombre,$Descrip,$Number,$generos,$usuario_sess)

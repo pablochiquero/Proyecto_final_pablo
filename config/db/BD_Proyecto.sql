@@ -1,5 +1,5 @@
 -- MySQL Workbench Forward Engineering
-
+SET SQL_SAFE_UPDATES = 0;
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
@@ -186,8 +186,8 @@ SELECT * FROM usuariosartistas;
 
 SELECT imagen FROM  usuariosartistas;
 
-delete from UsuariosArtistas where idUsuariosArtistas= 3;
+delete from UsuariosArtistas where idUsuariosArtistas= 1;
 
-UPDATE UsuariosArtistas SET NombreArtistico = 'pablete', Descripción= 'pro', Número = '651471031' ,idGenerosart = '3' WHERE  Nombre = 'fali';
+UPDATE UsuariosArtistas SET NombreArtistico = 'pablete', Descripción = 'pro', Número = '651471031' ,idGenerosart = '3', Imagen = 'user-image.jpg' WHERE  Nombre = 'rafael chiquero';
 
-UPDATE UsuariosArtistas SET NombreArtistico = 'NameArt', Descripción= 'Descrip', Número = '651471031', idGenerosart = '1' WHERE idUsuariosArtistas ='2';
+

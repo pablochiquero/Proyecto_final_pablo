@@ -1,12 +1,8 @@
 <?php defined('BASEPATH') or exit ('No se permite acceso directo');?>
 
-<?php 
-                        
-                        
-                        
-                        ?>
+
       
-<form action="" method="post" id="RegPerfilArt" class="cont-form-art col-12" enctype="multipart/form-data">
+<form  method="post" id="RegPerfilArt" class="cont-form-art col-12" enctype="multipart/form-data">
 
     <h1 class="tittle">Crea tu perfil.</h1>
 
@@ -22,13 +18,13 @@
     <div class="col-6"> 
             <!-- DESCRIPCIÓN -->
         <div class="input-group" >  
-           <textarea class="form-control" id="Descrip" aria-label="With textarea" placeholder="Describete" name="Descrip"></textarea>
+           <input type="text" class="form-control" id="Descrip"  name="Descrip"  placeholder="Describete" > 
         </div>
     </div>
 <hr>
     <div class="col-6"> 
             <!-- NÚMERO DE TELEFONO -->
-        <div class="input-group mb-3"> 
+        <div class="input-group"> 
             <input type="number" class="form-control" id="Number" form-control-aria-label="Number" aria-describedby="basic-addon1" name="Number" placeholder="Número de telefono">
         </div>
     </div>

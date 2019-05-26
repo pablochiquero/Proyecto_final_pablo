@@ -100,7 +100,7 @@ $(document).ready(function()
 			}
 			
 			if($("#NombreART").val() == ""){ // <-- VALIDACIÓN DE NombreART REG PERFIL ARTISTA
-				  msg+="Rellene el campo NombreART Artistico <br>";                
+				  msg+="Rellene el campo Nombre Artistico <br>";                
 				  $("#NombreART").addClass('error-validation');
 
 			} else{

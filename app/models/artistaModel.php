@@ -23,4 +23,7 @@ class artistaModel extends Model     //CLASE SESSION MODEL
     }
 
 
+    
+
+
 }

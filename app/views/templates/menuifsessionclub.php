@@ -23,7 +23,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <h1 class="logo"> Bienvenido a Siatelo <a href="perfil/index" class="etexus"><?php echo $_SESSION["club"]?></a></h1> 
-            <img src="<?php echo $userData['image'];?>">
+            <img src="<?php echo $userData['Imagen'];?>">
             <a href="session/salir" class="etexus">salir</a>
         </nav>
 
