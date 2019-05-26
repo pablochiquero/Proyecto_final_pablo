@@ -6,32 +6,33 @@
 
     <h1 class="tittle">el perfil de tu establecimiento.</h1>
 
-            
+          <!-- NOMBRE LOCAL-->    
     <div class="col-6"> 
 
-            <!-- NOMBRE LOCAL-->
+          
         <div class="input-group" >
             <input type="text" id="NameClub" name="NameClub"  class="form-control"  aria-label="Username" aria-describedby="basic-addon1" placeholder="Nombre de tu establecimiento">
         </div>
+        <hr>
         </div>
-<hr>
-    <div class="col-6"> 
-            <!-- DESCRIPCIÓN -->
-        <div class="input-group" >  
-           <input type="text" class="form-control" id="DescripClub"  name="DescripClub"  placeholder="Describe tu establecimiento" > 
+
+        <div class="col-6"> 
+
+        <!-- DESCRIPCIÓN-->
+            <div class="input-group" >
+                <input type="text" id="DescripClub" name="DescripClub"  class="form-control"  aria-label="Username" aria-describedby="basic-addon1" placeholder="Describe tu establecimiento">
+            </div>
+            <hr>
         </div>
-    </div>
-<hr>
+
     <div class="col-6"> 
             <!-- NÚMERO DE TELEFONO -->
         <div class="input-group"> 
             <input type="number" class="form-control" id="NumberClub" name="NumberClub" form-control-aria-label="Number" aria-describedby="basic-addon1"  placeholder="Número de telefono">
         </div>
+        <hr>
     </div>
-<hr>
 
-
-<hr>
 
         <!--  IMG CLUB -->  
         <div class="col-6">           
@@ -43,7 +44,7 @@
 				</label>
 			</div>
         </div>
-
+        <hr>
 </div>
             
 

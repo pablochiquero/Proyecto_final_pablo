@@ -1,6 +1,6 @@
 $(document).ready(function()
 {	
- // ---------->  VALIDACIÓN PERFIL ARTISTA    <------------------
+ // ---------->  VALIDACIÓN PERFIL CLUB   <------------------
 
 		function readURL(input) 
 		{
@@ -24,14 +24,12 @@ $(document).ready(function()
 
 
 
-	  $("#perfilClub_btn").click(function()  //<-- BOTON REG PERFIL ARTISTA
+	  $("#perfilClub_btn").click(function()  //<-- BOTON REG PERFIL CLUB
 	  {  
 			msg="";
 			var Nombre = $('#NameClub').val();
 			var Descrip = $('#DescripClub').val();
 			var Numero = $('#NumberClub').val();
-			
-			// var NumberClub = $('#categoria').val();
 			var imgFile = $('input[type=file]')[0].files[0];
 			var formData = new FormData();
 	

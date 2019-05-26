@@ -78,6 +78,21 @@ class sessionModel extends Model     //CLASE SESSION MODEL
 
         public function Reg_club($NameCR,$EmailCR,$PassCR)   //FUNCIÓN REGISTRO CLUB EN BASE DE DATOS
         {    
+
+                $connect = Model::getInstanceDB();
+
+                $sql ='SELECT * FROM UsuariosClub WHERE Email = :Email';
+                $stmt = $connect->prepare($sql);
+                $stmt->bindParam(':Email', $EmailCR);
+                $stmt->execute();
+                $rows = $stmt->rowCount();
+
+                if($rows== 1){
+                        return "Email Ocupado";
+                }
+
+
+                else{
                 $id = null;
                 $connect = Model::getInstanceDB();
                                 
@@ -98,6 +113,7 @@ class sessionModel extends Model     //CLASE SESSION MODEL
                 
                          echo json_encode('Registro correcto.');
                 }
+        }
                                
                    
         }

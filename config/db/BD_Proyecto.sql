@@ -1,5 +1,5 @@
 -- MySQL Workbench Forward Engineering
-SET SQL_SAFE_UPDATES = 0;
+
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
@@ -16,15 +16,6 @@ DROP SCHEMA IF EXISTS `BD_Proyecto` ;
 -- Schema BD_Proyecto
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `BD_Proyecto` DEFAULT CHARACTER SET utf8 ;
--- -----------------------------------------------------
--- Schema examen
--- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `examen` ;
-
--- -----------------------------------------------------
--- Schema examen
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `examen` DEFAULT CHARACTER SET utf8 ;
 USE `BD_Proyecto` ;
 
 -- -----------------------------------------------------
@@ -33,11 +24,10 @@ USE `BD_Proyecto` ;
 DROP TABLE IF EXISTS `BD_Proyecto`.`Generos` ;
 
 CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`Generos` (
-  `idGeneros` INT NOT NULL,
-  `Nombre` VARCHAR(45) NULL,
+  `idGeneros` INT(11) NOT NULL AUTO_INCREMENT,
+  `Nombre` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`idGeneros`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 10
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -47,9 +37,9 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `BD_Proyecto`.`Categorias` ;
 
 CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`Categorias` (
-  `idCategorias` INT NOT NULL AUTO_INCREMENT,
+  `idCategorias` INT(11) NOT NULL AUTO_INCREMENT,
   `NombreCategoria` VARCHAR(45) NULL DEFAULT NULL,
-  `idGeneros` INT NOT NULL,
+  `idGeneros` INT(11) NOT NULL,
   PRIMARY KEY (`idCategorias`),
   INDEX `fk_Categorias_Generos1_idx` (`idGeneros` ASC),
   CONSTRAINT `fk_Categorias_Generos1`
@@ -58,25 +48,7 @@ CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`Categorias` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 12
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `BD_Proyecto`.`UsuariosClub`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `BD_Proyecto`.`UsuariosClub` ;
-
-CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`UsuariosClub` (
-  `idUsuariosClub` INT NOT NULL AUTO_INCREMENT,
-  `Email` VARCHAR(100) NOT NULL,
-  `Password` VARCHAR(45) NOT NULL,
-  `Nombre` VARCHAR(100) NOT NULL,
-  `Descripción` VARCHAR(100) NULL DEFAULT NULL,
-  `Número` INT NULL DEFAULT NULL,
-  `Imagen` VARCHAR(200) NULL DEFAULT 'data-user/img/no-image.jpg',
-  PRIMARY KEY (`idUsuariosClub`))
-ENGINE = InnoDB
+AUTO_INCREMENT = 24
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -86,15 +58,15 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `BD_Proyecto`.`UsuariosArtistas` ;
 
 CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`UsuariosArtistas` (
-  `idUsuariosArtistas` INT NOT NULL AUTO_INCREMENT,
+  `idUsuariosArtistas` INT(11) NOT NULL AUTO_INCREMENT,
   `Email` VARCHAR(100) NOT NULL,
   `Nombre` VARCHAR(45) NOT NULL,
   `Password` VARCHAR(45) NOT NULL,
-  `NombreArtistico` VARCHAR(45) NULL,
-  `Descripción` VARCHAR(100) NULL,
-  `Número` INT NULL,
+  `NombreArtistico` VARCHAR(45) NULL DEFAULT NULL,
+  `Descrip` VARCHAR(100) NULL DEFAULT NULL,
+  `Num` INT(11) NULL DEFAULT NULL,
   `Imagen` VARCHAR(200) NOT NULL DEFAULT 'data-user/img/no-image.jpg',
-  `idGenerosart` INT NULL,
+  `idGenerosart` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`idUsuariosArtistas`),
   INDEX `fk_UsuariosArtistas_Generos1_idx` (`idGenerosart` ASC),
   CONSTRAINT `fk_UsuariosArtistas_Generos1`
@@ -102,25 +74,29 @@ CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`UsuariosArtistas` (
     REFERENCES `BD_Proyecto`.`Generos` (`idGeneros`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-USE `examen` ;
-
--- -----------------------------------------------------
--- Table `examen`.`empleados`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `examen`.`empleados` ;
-
-CREATE TABLE IF NOT EXISTS `examen`.`empleados` (
-  `id` INT(11) NOT NULL,
-  `fecha_nacimiento` VARCHAR(10) NOT NULL,
-  `apellido` VARCHAR(100) NOT NULL,
-  `nombre` VARCHAR(100) NOT NULL,
-  `departamento` VARCHAR(1) NOT NULL,
-  `fecha_entrada` VARCHAR(10) NOT NULL,
-  PRIMARY KEY (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
+AUTO_INCREMENT = 2
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `BD_Proyecto`.`UsuariosClub`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `BD_Proyecto`.`UsuariosClub` ;
+
+CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`UsuariosClub` (
+  `idUsuariosClub` INT(11) NOT NULL AUTO_INCREMENT,
+  `Email` VARCHAR(100) NOT NULL,
+  `Password` VARCHAR(45) NOT NULL,
+  `Nombre` VARCHAR(100) NOT NULL,
+  `NombreLocal` VARCHAR(100) NULL DEFAULT NULL,
+  `Descrip` VARCHAR(100) NULL DEFAULT NULL,
+  `Num` INT(11) NULL DEFAULT NULL,
+  `Imagen` VARCHAR(200) NULL DEFAULT 'data-user/img/no-image.jpg',
+  PRIMARY KEY (`idUsuariosClub`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 4
+DEFAULT CHARACTER SET = utf8;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
@@ -132,10 +108,10 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `BD_Proyecto`;
-INSERT INTO `BD_Proyecto`.`Generos` (`idGeneros`, `Nombre`) VALUES (1, 'Musical');
-INSERT INTO `BD_Proyecto`.`Generos` (`idGeneros`, `Nombre`) VALUES (2, 'Arte');
-INSERT INTO `BD_Proyecto`.`Generos` (`idGeneros`, `Nombre`) VALUES (3, 'Baile');
-INSERT INTO `BD_Proyecto`.`Generos` (`idGeneros`, `Nombre`) VALUES (4, 'Interpretación');
+INSERT INTO `BD_Proyecto`.`Generos` (`idGeneros`, `Nombre`) VALUES (DEFAULT, 'Musical');
+INSERT INTO `BD_Proyecto`.`Generos` (`idGeneros`, `Nombre`) VALUES (DEFAULT, 'Arte');
+INSERT INTO `BD_Proyecto`.`Generos` (`idGeneros`, `Nombre`) VALUES (DEFAULT, 'Interpretación');
+INSERT INTO `BD_Proyecto`.`Generos` (`idGeneros`, `Nombre`) VALUES (DEFAULT, 'Baile');
 
 COMMIT;
 
@@ -147,47 +123,18 @@ START TRANSACTION;
 USE `BD_Proyecto`;
 INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Dj', 1);
 INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Pop', 1);
-INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Rock', 1);
 INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Pintura al oleo', 2);
 INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Pintura luminica', 2);
-INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Pintor de auto retratos', 2);
-INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Break Dance', 3);
-INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Danza moderna', 3);
-INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Zumba', 3);
-INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Actriz', 4);
-INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Actor', 4);
-INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Figurante', 4);
+INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Actriz', 3);
+INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Actor', 3);
+INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Danza moderna', 4);
+INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGeneros`) VALUES (DEFAULT, 'Break-Dance', 4);
 
 COMMIT;
 
 
--- -----------------------------------------------------
--- Data for table `BD_Proyecto`.`UsuariosClub`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `BD_Proyecto`;
-INSERT INTO `BD_Proyecto`.`UsuariosClub` (`idUsuariosClub`, `Email`, `Password`, `Nombre`, `Descripción`, `Número`, `Imagen`) VALUES (DEFAULT, 'siatelo@gmail.com', 'siatelo', 'Siatelo', NULL, NULL, NULL);
-INSERT INTO `BD_Proyecto`.`UsuariosClub` (`idUsuariosClub`, `Email`, `Password`, `Nombre`, `Descripción`, `Número`, `Imagen`) VALUES (DEFAULT, 'gorgroup@gmail.com', 'gor', 'Gorgroup', NULL, NULL, NULL);
 
-COMMIT;
+SELECT * FROM UsuariosClub;
 
 
--- -----------------------------------------------------
--- Data for table `BD_Proyecto`.`UsuariosArtistas`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `BD_Proyecto`;
-INSERT INTO `BD_Proyecto`.`UsuariosArtistas` (`idUsuariosArtistas`, `Email`, `Nombre`, `Password`, `NombreArtistico`, `Descripción`, `Número`, `Imagen`, `idGenerosart`) VALUES (DEFAULT, '06chiquero@gmail.com', 'Pablo Chiquero Mateo', 'todo', NULL, NULL, NULL, DEFAULT, NULL);
-
-COMMIT;
-
-
-SELECT * FROM usuariosartistas;
-
-SELECT imagen FROM  usuariosartistas;
-
-delete from UsuariosArtistas where idUsuariosArtistas= 1;
-
-UPDATE UsuariosArtistas SET NombreArtistico = 'pablete', Descripción = 'pro', Número = '651471031' ,idGenerosart = '3', Imagen = 'user-image.jpg' WHERE  Nombre = 'rafael chiquero';
-
-
+SELECT * FROM UsuariosArtistas;

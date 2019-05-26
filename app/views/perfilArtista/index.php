@@ -14,21 +14,21 @@
             <input type="text" id="NombreART" name="NombreART"  class="form-control"  aria-label="Username" aria-describedby="basic-addon1" placeholder="Nombre Artístico">
         </div>
         </div>
-<hr>
+
     <div class="col-6"> 
             <!-- DESCRIPCIÓN -->
         <div class="input-group" >  
            <input type="text" class="form-control" id="Descrip"  name="Descrip"  placeholder="Describete" > 
         </div>
     </div>
-<hr>
+
     <div class="col-6"> 
             <!-- NÚMERO DE TELEFONO -->
         <div class="input-group"> 
             <input type="number" class="form-control" id="Number" form-control-aria-label="Number" aria-describedby="basic-addon1" name="Number" placeholder="Número de telefono">
         </div>
     </div>
-<hr>
+
 
             <!--<GENERO -->
     <div class="col-12">        
@@ -56,7 +56,7 @@
 
     </div>
     </div>
-<hr>
+
 
         <!--  IMG ARTISTA -->  
         <div class="col-6">           

@@ -17,6 +17,7 @@
     <!-- <script src="webroot/js/home.js"></script> -->
     <script src="webroot/js/reglog.js"></script>
     <script src="webroot/js/perfilArtista.js"></script>
+    <script src="webroot/js/perfilClub.js"></script>
     <title>Proyecto con bootstrap</title>
 </head>
 <body>
