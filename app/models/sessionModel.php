@@ -37,7 +37,7 @@ class sessionModel extends Model     //CLASE SESSION MODEL
                         }
                         else
                         {
-                                echo json_encode("Registro correcto."." ".$NameAR);
+                                echo json_encode("Registro correcto.");
                         }
             
                 }

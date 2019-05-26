@@ -37,6 +37,8 @@ class perfilArtistaController extends Controller
 
     }
 
+    
+
   
 
 
@@ -44,60 +46,44 @@ class perfilArtistaController extends Controller
 
     public function InsertDatos(){   
         $usuario_sess=$_SESSION["artista"];
-    
-        if(isset($_POST['Nombre']) && isset($_POST['Descrip']) && isset($_POST['Number']) && isset($_FILES['user-img-file']['name']))
-        {
-            $insertImg = insertImage($_FILES['user-img-file'], 'user-image', 2000000, 'login-registro/data-user/img', $usuario_sess);
+      
 
-		if($insertImg[1] == false){
-
-			echo $insertImg[0];
- 
-		} else {
-
-			$imageURL = 'data-user/img/' . $usuario_sess . '/' . $insertImg[2];
         
-        }
-    }
+    
+                //INSERTAMOS DATOS DE FORMULARIO DE PERFIL E IMAGEN 
+        if(isset($_POST["NombreART"]) && isset($_POST["Descrip"]) && isset($_POST["Number"])  && isset($_POST["generos"]) 
+        && isset($_FILES['user-img-file']) ){  
+                 
 
-   
-
-        // $usuario_sess=$_SESSION["artista"];
-
-        // if(isset($_POST["Nombre"]) && isset($_POST["Descrip"]) && isset($_POST["Number"]) && isset($_POST["generos"])
-        //      && isset($_FILES['user-img-file']) ){
-
-        //         $insertImg = insertImage($_FILES['user-img-file'], 'user-image', 2000000, 'data-user/img',$usuario_sess);
+                $insertImg = insertImage($_FILES['user-img-file'], 'user-image', 2000000, 'data-user/img',$usuario_sess);
                 
-        //         $Nombre=Security::secure_input($_POST["Nombre"]);
-        //         $Descrip=Security::secure_input($_POST["Descrip"]);
-        //         $Number=Security::secure_input($_POST["Number"]);
-        //         $generos=$_POST["generos"];
-        //         // $Categoria=$_POST["categoria"];
+                $Nombre=Security::secure_input($_POST["NombreART"]);
+                $Descrip=Security::secure_input($_POST["Descrip"]);
+                $Number=Security::secure_input($_POST["Number"]);
+                $generos=$_POST["generos"];
+
+                 
+                // $Categoria=$_POST["categoria"];
 
                 
-        //         $perfil=perfilArtistaModel::insertImg($insertImg[2],$Nombre,$Descrip,$Number,$generos);   // INSTANCIAMOS UN METODO
-        //         echo json_encode($perfil);
-        //     }
-        //     else{
-        //         $Nombre=Security::secure_input($_POST["Nombre"]);
-        //         $Descrip=Security::secure_input($_POST["Descrip"]);
-        //         $Number=Security::secure_input($_POST["Number"]);
-        //         $generos=$_POST["generos"];
-
-
-
-
-        //         // $Categoria=$_POST["categoria"];
+                $perfil=perfilArtistaModel::insertImg($insertImg[2],$Nombre,$Descrip,$Number,$generos,$usuario_sess);   // INSTANCIAMOS UN METODO
+                echo json_encode($perfil);
+            }
+            else{           //INSERTAMOS DATOS DE FORMULARIO DE PERFIL SOLO.
+                $Nombre=Security::secure_input($_POST["NombreART"]);
+                $Descrip=Security::secure_input($_POST["Descrip"]);
+                $Number=Security::secure_input($_POST["Number"]);
+                $generos=$_POST["generos"];
 
                 
-        //         $perfildat=perfilArtistaModel::insert($Nombre,$Descrip,$Number,$generos);   // INSTANCIAMOS UN METODO
-        //         echo json_encode($perfildat);
+                // $Categoria=$_POST["categoria"];
 
-        //         // $insertar = new perfilArtistaModel;
-        //         // echo json_encode($insertar->insert($Nombre,$Descrip,$Number,$generos));  // prueba de creear otro metodo
+                $perfildat=perfilArtistaModel::insert($Nombre,$Descrip,$Number,$generos,$usuario_sess); 
+                echo json_encode($perfildat);
+
+               
                 
-        //     }
+            }
             
 
            

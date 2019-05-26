@@ -7,7 +7,7 @@
         <div class="proximoseventos">
             
           <div class="card" style="width: 18rem;"> <!--  TARJETA QUE LUEGO NO IRA AQUI YA QUE SERA DINAMICA -->
-                  <img src="webroot/img/5.jpeg" class="card-img-top" alt="...">
+                  <img src="webroot/imagenes/5.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Card title</h5>
                       <p class="card-text">Texto dinamico que creara el propio cliente</p>
@@ -16,7 +16,7 @@
             </div>
 
             <div class="card" style="width: 18rem;"> <!--  TARJETA QUE LUEGO NO IRA AQUI YA QUE SERA DINAMICA -->
-                <img src="webroot/img/5.jpeg" class="card-img-top" alt="...">
+                <img src="webroot/imagenes/5.jpeg" class="card-img-top" alt="...">
                   <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">Texto dinamico que creara el propio cliente</p>
@@ -25,7 +25,7 @@
             </div>
 
             <div class="card" style="width: 18rem;"> <!--  TARJETA QUE LUEGO NO IRA AQUI YA QUE SERA DINAMICA -->
-              <img src="webroot/img/5.jpeg" class="card-img-top" alt="...">
+              <img src="webroot/imagenes/5.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
                   <p class="card-text">Texto dinamico que creara el propio cliente</p>
@@ -34,7 +34,7 @@
             </div>
 
             <div class="card" style="width: 18rem;"> <!--  TARJETA QUE LUEGO NO IRA AQUI YA QUE SERA DINAMICA -->
-            <img src="webroot/img/5.jpeg" class="card-img-top" alt="...">
+            <img src="webroot/imagenes/5.jpeg" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Texto dinamico que creara el propio cliente</p>

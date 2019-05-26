@@ -6,7 +6,7 @@
                         
                         ?>
       
-<form action="" method="post" id="RegPerfilArt" class="cont-form-art" enctype="multipart/form-data">
+<form action="" method="post" id="RegPerfilArt" class="cont-form-art col-12" enctype="multipart/form-data">
 
     <h1 class="tittle">Crea tu perfil.</h1>
 
@@ -15,19 +15,25 @@
 
             <!-- NOMBRE ARTISTICO -->
         <div class="input-group" >
-            <input type="text" id="Nombre" name="Nombre"  class="form-control"  aria-label="Username" aria-describedby="basic-addon1" placeholder="Nombre Artístico">
+            <input type="text" id="NombreART" name="NombreART"  class="form-control"  aria-label="Username" aria-describedby="basic-addon1" placeholder="Nombre Artístico">
+        </div>
         </div>
 <hr>
+    <div class="col-6"> 
             <!-- DESCRIPCIÓN -->
         <div class="input-group" >  
            <textarea class="form-control" id="Descrip" aria-label="With textarea" placeholder="Describete" name="Descrip"></textarea>
         </div>
+    </div>
 <hr>
+    <div class="col-6"> 
             <!-- NÚMERO DE TELEFONO -->
         <div class="input-group mb-3"> 
             <input type="number" class="form-control" id="Number" form-control-aria-label="Number" aria-describedby="basic-addon1" name="Number" placeholder="Número de telefono">
         </div>
+    </div>
 <hr>
+
             <!--<GENERO -->
     <div class="col-12">        
         <div class="input-group-prepend">  
@@ -37,31 +43,35 @@
                 <?php foreach($generos as $value){ ?>   <!-- HACEMOS UN FOREACH PARA RECORRER LA VARIABLE DONDE ALMACENAMOS LA ARRAY RECOGIDA DE LA TABLA GENEROS-->
                     
                     <option  id ="generos" name="Generos" value="<?php echo $value['idGeneros']; ?>">     
-                            <?php echo $value['Nombre']; ?>      <!-- INSERTAMOS DE FORMA DINAMICA TODOS LOS TIPOS DE GENEROS -->
+                            <?php echo $value['Nombre'];  ?>      <!-- INSERTAMOS DE FORMA DINAMICA TODOS LOS TIPOS DE GENEROS -->
                     </option> 
 
                <?php } ?>   <!-- FIN DEL FOREACH -->
             </select>   
                     
         </div>
+        
  
         <!--<CATEGORIA -->
-        <!-- <div class="input-group-prepend" class="col-6">  
+        <div class="input-group-prepend" class="col-6">  
                 <span class="input-group-text">Categoria</span>  
                 <select name="categoria" id="categoria" name="Categoria"></select>               
         </div>
 
     </div>
-<hr> -->
+    </div>
+<hr>
 
-        <!--  IMG ARTISTA -->            
-            <div class="img-box" class="col-6">
+        <!--  IMG ARTISTA -->  
+        <div class="col-6">           
+            <div class="img-box" >
 				<img src="<?php echo $userData['Imagen'];?>" id="user-img">
 				<input type="file" id="user-img-file" name="user-img-file">
 				<label for="user-img-file" class="center">
 					Click aquí para subir imagen (2MB máx).
 				</label>
 			</div>
+        </div>
 
 </div>
             

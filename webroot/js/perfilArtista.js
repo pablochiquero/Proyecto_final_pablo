@@ -76,35 +76,35 @@ $(document).ready(function()
 	  $("#perfil_btn").click(function()  //<-- BOTON REG PERFIL ARTISTA
 	  {  
 			msg="";
-			var Nombre = $('#Nombre').val();
+			var Nombre = $('#NombreART').val();
 			var Descrip = $('#Descrip').val();
 			var Numero = $('#Number').val();
-			// var generos = $('#generos').val();
+			var generos = $('#generos').val();
 			// var Numero = $('#categoria').val();
 			var imgFile = $('input[type=file]')[0].files[0];
 			var formData = new FormData();
 	
 			if(imgFile == null){
-				formData.append('Nombre', Nombre);
+				formData.append('NombreART', Nombre);
 				formData.append('Descrip', Descrip);
 				formData.append('Number', Numero);
-				// formData.append('generos', generos);
+				formData.append('generos', generos);
 				// formData.append('categoria', categoria);
 			}else{
 				formData.append('user-img-file', imgFile);
-				formData.append('Nombre', Nombre);
+				formData.append('NombreART', Nombre);
 				formData.append('Descrip', Descrip);
 				formData.append('Number', Numero);
-				// formData.append('generos', generos);
+				formData.append('generos', generos);
 				// formData.append('categoria', categoria);
 			}
 			
-			if($("#Nombre").val() == ""){ // <-- VALIDACIÓN DE NOMBRE REG PERFIL ARTISTA
-				  msg+="Rellene el campo Nombre Artistico <br>";                
-				  $("#Nombre").addClass('error-validation');
+			if($("#NombreART").val() == ""){ // <-- VALIDACIÓN DE NombreART REG PERFIL ARTISTA
+				  msg+="Rellene el campo NombreART Artistico <br>";                
+				  $("#NombreART").addClass('error-validation');
 
 			} else{
-				  $("#Nombre").removeClass('error-validation');
+				  $("#NombreART").removeClass('error-validation');
 			  
 			}
 
@@ -126,6 +126,7 @@ $(document).ready(function()
 				$("#Number").removeClass('error-validation');
 			
 			}
+
 
 			// if ($('#generos').val() === '') {		// <-- VALIDACIÓN DE GÉNERO REG PERFIL ARTISTA
 			

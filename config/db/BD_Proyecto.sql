@@ -185,3 +185,9 @@ COMMIT;
 SELECT * FROM usuariosartistas;
 
 SELECT imagen FROM  usuariosartistas;
+
+delete from UsuariosArtistas where idUsuariosArtistas= 3;
+
+UPDATE UsuariosArtistas SET NombreArtistico = 'pablete', Descripción= 'pro', Número = '651471031' ,idGenerosart = '3' WHERE  Nombre = 'fali';
+
+UPDATE UsuariosArtistas SET NombreArtistico = 'NameArt', Descripción= 'Descrip', Número = '651471031', idGenerosart = '1' WHERE idUsuariosArtistas ='2';
