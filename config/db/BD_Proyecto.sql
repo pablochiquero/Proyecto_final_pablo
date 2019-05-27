@@ -66,12 +66,12 @@ CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`UsuariosArtistas` (
   `Descrip` VARCHAR(100) NULL DEFAULT NULL,
   `Num` INT(11) NULL DEFAULT NULL,
   `Imagen` VARCHAR(200) NOT NULL DEFAULT 'data-user/img/no-image.jpg',
-  `idGenerosart` INT(11) NULL DEFAULT NULL,
+  `idCategorias` INT(11) NOT NULL,
   PRIMARY KEY (`idUsuariosArtistas`),
-  INDEX `fk_UsuariosArtistas_Generos1_idx` (`idGenerosart` ASC),
-  CONSTRAINT `fk_UsuariosArtistas_Generos1`
-    FOREIGN KEY (`idGenerosart`)
-    REFERENCES `BD_Proyecto`.`Generos` (`idGeneros`)
+  INDEX `fk_UsuariosArtistas_Categorias1_idx` (`idCategorias` ASC),
+  CONSTRAINT `fk_UsuariosArtistas_Categorias1`
+    FOREIGN KEY (`idCategorias`)
+    REFERENCES `BD_Proyecto`.`Categorias` (`idCategorias`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -132,9 +132,3 @@ INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGe
 
 COMMIT;
 
-
-
-SELECT * FROM UsuariosClub;
-
-
-SELECT * FROM UsuariosArtistas;

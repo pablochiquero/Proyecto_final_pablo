@@ -5,43 +5,20 @@
     <div class="contenteventos">
       <h1>Nuestros artistas</h1>
         <div class="proximoseventos">
+
+        <?php foreach($artistas as $value){ ?>   <!-- HACEMOS UN FOREACH PARA RECORRER LA VARIABLE DONDE ALMACENAMOS LA ARRAY RECOGIDA DE LA TABLA GENEROS-->
             
           <div class="card" style="width: 18rem;"> <!--  TARJETA QUE LUEGO NO IRA AQUI YA QUE SERA DINAMICA -->
-                  <img src="webroot/imagenes/5.jpeg" class="card-img-top" alt="...">
+                  <img src="<?php echo $value['Imagen'];  ?>" class="card-img-top" alt="...">
+
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Texto dinamico que creara el propio cliente</p>
+                      <h5 class="card-title"><?php echo $value['NombreArtistico'];  ?></h5>
+                      <p class="card-text"> <?php echo $value['Descrip'];  ?></p>
                       <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
             </div>
 
-            <div class="card" style="width: 18rem;"> <!--  TARJETA QUE LUEGO NO IRA AQUI YA QUE SERA DINAMICA -->
-                <img src="webroot/imagenes/5.jpeg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Texto dinamico que creara el propio cliente</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-            </div>
-
-            <div class="card" style="width: 18rem;"> <!--  TARJETA QUE LUEGO NO IRA AQUI YA QUE SERA DINAMICA -->
-              <img src="webroot/imagenes/5.jpeg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Texto dinamico que creara el propio cliente</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem;"> <!--  TARJETA QUE LUEGO NO IRA AQUI YA QUE SERA DINAMICA -->
-            <img src="webroot/imagenes/5.jpeg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Texto dinamico que creara el propio cliente</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-
+            <?php } ?>   <!-- FIN DEL FOREACH -->
             
       </div>         
     </div>

@@ -8,8 +8,8 @@
                 <a href="artistas/index"> <h5 class="text-white h4">Artistas</h5></a>
                 <span class="text-muted">Conoce a nuestros artistas.</span>
                 
-                <a href="eventos/index"> <h5 class="text-white h4">Eventos</h5></a>
-                <span class="text-muted">Echa un vistazo a nuestros proximos eventos.</span>
+                <a href="clubs/index"> <h5 class="text-white h4">Clubs</h5></a>
+                <span class="text-muted">Echa un vistazo a nuestros Clubs.</span>
                 
                 <a href="perfilClub/index"> <h5 class="text-white h4">Tu Club</h5></a>
                 <span class="text-muted">Enseñanos tu club.</span>

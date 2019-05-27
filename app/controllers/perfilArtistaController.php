@@ -15,7 +15,7 @@ class perfilArtistaController extends Controller
         $this->set($d);                             // SET A ESTA VARIABLE Y LA MANDAMOS AL INDEX
 
 
-        //IMAGEN PERFIL
+        //IMAGEN PERFIL QUE VIENE DEL SESSIONMODEL 
         require_once(ROOT . DS . 'app' . DS . 'models' . DS . 'sessionModel.php' );  //REQUERIMOS EL MODELO DONDE HAREMOS LA CONSULTA
         $userData =new sessionModel();
         $i["userData"]= $userData->Get_info();
@@ -45,11 +45,14 @@ class perfilArtistaController extends Controller
 //INSERTAMOS DATOS DE FORMULARIO DE PERFIL E IMAGEN 
 
     public function InsertDatos(){   
-        $usuario_sess=$_SESSION["artista"];
+        $usuario_sess=$_SESSION["artista"][1];
+      
+
+        var_dump($_SESSION["artista"]);
       
                 //INSERTAMOS DATOS DE FORMULARIO DE PERFIL E IMAGEN 
 
-        if(isset($_POST["NombreART"]) && isset($_POST["Descrip"]) && isset($_POST["Number"])  && isset($_POST["generos"]) 
+        if(isset($_POST["NombreART"]) && isset($_POST["Descrip"]) && isset($_POST["Number"])  && isset($_POST["Categoria"]) 
         && isset($_FILES['user-img-file']) ){  
 
 
@@ -60,25 +63,23 @@ class perfilArtistaController extends Controller
                 $Nombre=Security::secure_input($_POST["NombreART"]);
                 $Descrip=Security::secure_input($_POST["Descrip"]);
                 $Number=Security::secure_input($_POST["Number"]);
-                $generos=$_POST["generos"];                                                  
+                $Categoria=$_POST["Categoria"];                                                  
 
-                // $Categoria=$_POST["categoria"];
+             
 
                
                 $perfil = new perfilArtistaModel;
-                echo json_encode($perfil->insertImg($insertImg[2],$Nombre,$Descrip,$Number,$generos,$usuario_sess));
+                echo json_encode($perfil->insertImg($insertImg[2],$Nombre,$Descrip,$Number,$Categoria,$usuario_sess));
             }
             else{           //INSERTAMOS DATOS DE FORMULARIO DE PERFIL SOLO.
 
                 $Nombre=Security::secure_input($_POST["NombreART"]);
                 $Descrip=Security::secure_input($_POST["Descrip"]);
                 $Number=Security::secure_input($_POST["Number"]);
-                $generos=$_POST["generos"];
+                $Categoria=$_POST["Categoria"];
 
-                
-                // $Categoria=$_POST["categoria"];
 
-                $perfildat=perfilArtistaModel::insert($Nombre,$Descrip,$Number,$generos,$usuario_sess); 
+                $perfildat=perfilArtistaModel::insert($Nombre,$Descrip,$Number,$Categoria,$usuario_sess); 
                 echo json_encode($perfildat);
 
                

@@ -82,7 +82,6 @@
           </div>
 
           <div class="form-group">  <!--  PASSWORD REG CLUB-->
-            <label for="exampleInputPassword2">Password</label>  
             <input type="password" class="form-control" id="PassClubReg" name="PassCR" placeholder="Password" >
           </div>
           

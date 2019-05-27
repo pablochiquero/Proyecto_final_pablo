@@ -53,6 +53,7 @@ class sessionController extends Controller {
 
             $selectLogArt = new sessionModel;
             echo json_encode($selectLogArt->Log_artista($NameAL,$EmailAL,$PassAL));
+           
             
         }
         else{

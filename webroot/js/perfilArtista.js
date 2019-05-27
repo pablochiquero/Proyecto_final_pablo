@@ -19,7 +19,7 @@ $(document).ready(function()
 										for(var i = 0; i<datos.length; i++)
 											{					//PINTAMOS LAS CATEGORIAS DINAMICAS.
 
-												divContent+='<option>'+datos[i].NombreCategoria+'</option>';
+												divContent+='<option value='+datos[i].idCategorias+'>'+datos[i].NombreCategoria+'</option>';
 
 											}
 											if(data.length>0)
@@ -79,8 +79,8 @@ $(document).ready(function()
 			var Nombre = $('#NombreART').val();
 			var Descrip = $('#Descrip').val();
 			var Numero = $('#Number').val();
-			var generos = $('#generos').val();
-			// var Numero = $('#categoria').val();
+		
+			var Categoria = $('#categoria').val();
 			var imgFile = $('input[type=file]')[0].files[0];
 			var formData = new FormData();
 	
@@ -88,15 +88,15 @@ $(document).ready(function()
 				formData.append('NombreART', Nombre);
 				formData.append('Descrip', Descrip);
 				formData.append('Number', Numero);
-				formData.append('generos', generos);
-				// formData.append('categoria', categoria);
+			
+				formData.append('Categoria', Categoria);
 			}else{
 				formData.append('user-img-file', imgFile);
 				formData.append('NombreART', Nombre);
 				formData.append('Descrip', Descrip);
 				formData.append('Number', Numero);
-				formData.append('generos', generos);
-				// formData.append('categoria', categoria);
+				
+				formData.append('Categoria', Categoria);
 			}
 			
 			if($("#NombreART").val() == ""){ // <-- VALIDACIÓN DE NombreART REG PERFIL ARTISTA

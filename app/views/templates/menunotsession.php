@@ -8,8 +8,8 @@
                 <a href="<?php echo BASE_DIR_URL ?>artistas/index"> <h5 class="text-white h4">Artistas</h5></a>
                 <span class="text-muted">Conoce a nuestros artistas.</span>
                 
-                <a href="<?php echo BASE_DIR_URL ?>eventos/index"> <h5 class="text-white h4">Eventos</h5></a>
-                <span class="text-muted">Echa un vistazo a nuestros proximos eventos.</span>
+                <a href="<?php echo BASE_DIR_URL ?>clubs/index"> <h5 class="text-white h4">Clubs</h5></a>
+                <span class="text-muted">Echa un vistazo a nuestros Clubs.</span>
                 
                 <a href="<?php echo BASE_DIR_URL ?>session/index"> <h5 class="text-white h4">Login</h5></a>
                 <span class="text-muted">Entra o Registrate si aún no tienes cuenta.</span>

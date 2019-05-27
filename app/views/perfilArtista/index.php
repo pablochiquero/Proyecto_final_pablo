@@ -51,7 +51,7 @@
         <!--<CATEGORIA -->
         <div class="input-group-prepend" class="col-6">  
                 <span class="input-group-text">Categoria</span>  
-                <select name="categoria" id="categoria" name="Categoria"></select>               
+                <select  id="categoria" name="Categoria"></select>               
         </div>
 
     </div>

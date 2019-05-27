@@ -126,10 +126,10 @@
 </div>    
 
 
-<div class="container-fluid">         <!--  TARJETAS PROXIMOS EVENTOS -->
+<div class="container-fluid">         <!--  TARJETAS CLUBS -->
   <div class="row">
     <div class="contenteventos">
-      <h1>Proximos eventos</h1>
+      <h1>Nuestros Clubs</h1>
         <div class="proximoseventos">
             
         

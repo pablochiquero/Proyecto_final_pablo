@@ -30,7 +30,7 @@ class perfilArtistaModel extends Model
 
 
                 // INSERTAR DATOS FORMULARIO
- public function insertImg($new_img,$Nombre,$Descrip,$Number,$generos,$usuario_sess)
+ public function insertImg($new_img,$Nombre,$Descrip,$Number,$Categoria,$usuario_sess)
                     
   {
         
@@ -39,18 +39,18 @@ class perfilArtistaModel extends Model
         $connect = Model::getInstanceDB();
 
         
-        $sql= "UPDATE UsuariosArtistas SET NombreArtistico = :NameArt, Descrip= :Descrip, Num= :Num ,idGenerosart = :Generos, Imagen = :Img WHERE  Nombre = :usuario";
+        $sql= "UPDATE UsuariosArtistas SET NombreArtistico = :NameArt, Descrip= :Descrip, Num= :Num ,idCategorias = :categoria, Imagen = :Img WHERE Email = :usuario";
         $stmt = $connect->prepare($sql);
 
         $stmt->bindParam(':NameArt', $Nombre);
         $stmt->bindParam(':Descrip', $Descrip);
         $stmt->bindParam(':Num', $Number);
-        $stmt->bindParam(':Generos', $generos);
+        $stmt->bindParam(':categoria', $Categoria);
         $stmt->bindParam(':Img', $new_img);
         $stmt->bindParam(':usuario', $usuario_sess);
         //$stmt->bindParam(':categoria', $categoria);
         
-        
+        var_dump($stmt);
 
         if($stmt->execute()){
             return true;
@@ -64,21 +64,21 @@ class perfilArtistaModel extends Model
     }
 
     
-    public function insert($Nombre,$Descrip,$Number,$generos,$usuario_sess)
+    public function insert($Nombre,$Descrip,$Number,$Categoria,$usuario_sess)
     {
        $connect = Model::getInstanceDB();
         
-    $sql="UPDATE UsuariosArtistas SET NombreArtistico = ':NameArt', Descrip= ':Descrip', Num = ':Num', idGenerosart = ':Generos'  WHERE  Nombre = ':usuario' ";   
+    $sql="UPDATE UsuariosArtistas SET NombreArtistico = ':NameArt', Descrip= ':Descrip', Num = ':Num', idCategorias = ':Categoria'  WHERE  Email = ':usuario' ";   
     
         $stmt = $connect->prepare($sql);
 
         $stmt->bindParam(':NombreART', $Nombre);
         $stmt->bindParam(':Descrip', $Descrip);
         $stmt->bindParam(':Num', $Number);
-        $stmt->bindParam(':Generos', $generos);
-    //  $stmt->bindParam(":categoria", $categoria);
+        $stmt->bindParam(':Categoria', $Categoria);
+    
         $stmt->bindParam(':usuario', $usuario_sess);
-   
+  
 
          if($stmt->execute())
          {

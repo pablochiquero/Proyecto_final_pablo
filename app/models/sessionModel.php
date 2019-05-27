@@ -29,6 +29,8 @@ class sessionModel extends Model     //CLASE SESSION MODEL
                         $stmt->bindParam(':Nombre', $NameAR);
                         $stmt->bindParam(':Email', $EmailAR);
                         $stmt->bindParam(':Pass', $PassAR);
+
+                       
                         
 
                         if(!$stmt->execute())
@@ -60,7 +62,8 @@ class sessionModel extends Model     //CLASE SESSION MODEL
 		if($rows>0)
 		{
                          
-                        $_SESSION["artista"]=$NameAL;  //prueba para tener variable de session por artista
+                     $_SESSION["artista"] = [$NameAL,$EmailAL]; // METO EN UNA ARRAY LOS DOS VALORES NOMBRE[0] Y EMAIL [1].
+                       
                         return true;
                         
                                
@@ -133,7 +136,7 @@ class sessionModel extends Model     //CLASE SESSION MODEL
 		
 		if($rows>0)
 		{
-			 $_SESSION["club"]=$NameCL;
+			 $_SESSION["club"]=[$NameCL,$EmailCL];  // METO EN UNA ARRAY LOS DOS VALORES NOMBRE[0] Y EMAIL [1].
                          return true;
                         
                                
@@ -148,14 +151,14 @@ class sessionModel extends Model     //CLASE SESSION MODEL
        
         
         
-        public function Get_info()  //FUNCIÓN SELECIONAR ARTISTA PARA LOGIN EN BASE DE DATOS
+        public function Get_info()       //FUNCIÓN SELECIONAR ARTISTA PARA EXTAER IMAGEN O LO QUE NECESITE DEL ARTISTA
 	{		
-		$connect = Model::getInstanceDB();
-                $sql ='SELECT * FROM UsuariosArtistas WHERE Nombre = :Nombre';
+                $connect = Model::getInstanceDB();
+                $sql ='SELECT * FROM UsuariosArtistas WHERE Email = :Nombre';
                         
                 $stmt = $connect->prepare($sql);
 
-                $stmt->bindParam(':Nombre', $_SESSION["artista"]);  
+                $stmt->bindParam(':Nombre', $_SESSION["artista"][1]);  
                 
                
 		
