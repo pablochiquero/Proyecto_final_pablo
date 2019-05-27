@@ -48,7 +48,7 @@ class perfilArtistaController extends Controller
         $usuario_sess=$_SESSION["artista"][1];
       
 
-        var_dump($_SESSION["artista"]);
+        
       
                 //INSERTAMOS DATOS DE FORMULARIO DE PERFIL E IMAGEN 
 
@@ -79,9 +79,10 @@ class perfilArtistaController extends Controller
                 $Categoria=$_POST["Categoria"];
 
 
-                $perfildat=perfilArtistaModel::insert($Nombre,$Descrip,$Number,$Categoria,$usuario_sess); 
-                echo json_encode($perfildat);
+                $perfildat = new perfilArtistaModel;
+                echo json_encode($perfildat->insert($Nombre,$Descrip,$Number,$Categoria,$usuario_sess));
 
+    
                
                 
             }

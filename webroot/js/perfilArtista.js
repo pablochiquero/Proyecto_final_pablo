@@ -88,14 +88,12 @@ $(document).ready(function()
 				formData.append('NombreART', Nombre);
 				formData.append('Descrip', Descrip);
 				formData.append('Number', Numero);
-			
 				formData.append('Categoria', Categoria);
 			}else{
 				formData.append('user-img-file', imgFile);
 				formData.append('NombreART', Nombre);
 				formData.append('Descrip', Descrip);
 				formData.append('Number', Numero);
-				
 				formData.append('Categoria', Categoria);
 			}
 			
