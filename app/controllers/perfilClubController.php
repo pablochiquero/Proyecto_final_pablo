@@ -6,12 +6,18 @@ class perfilClubController extends Controller {
 
     public function index() {
 
+         //IMAGEN PERFIL QUE VIENE DEL SESSIONMODEL 
+         require_once(ROOT . DS . 'app' . DS . 'models' . DS . 'sessionModel.php' );  //REQUERIMOS EL MODELO DONDE HAREMOS LA CONSULTA
+         $userimg =new sessionModel();
+         $i["userimg"]= $userimg->Get_img();
+         $this->set($i); 
+
         $this->render('index');
 
     }
 
     public function InsertDatos(){   
-        $usuario_sess=$_SESSION["club"];
+        $usuario_sess=$_SESSION["club"][1];
       
                 //INSERTAMOS DATOS DE FORMULARIO DE PERFIL E IMAGEN 
 

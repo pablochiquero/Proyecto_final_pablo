@@ -175,6 +175,34 @@ class sessionModel extends Model     //CLASE SESSION MODEL
                        
 		
 
+        }
+        
+        public function Get_img()       //FUNCIÓN SELECIONAR CLUB PARA EXTAER IMAGEN O LO QUE NECESITE DEL CLUB
+	{		
+                $connect = Model::getInstanceDB();
+                $sql ='SELECT * FROM UsuariosClub WHERE Email = :Nombre';
+
+                        
+                $stmt = $connect->prepare($sql);
+
+
+                $stmt->bindParam(':Nombre', $_SESSION["club"][1]);  
+                
+               
+		
+                $stmt->execute();
+                $userimg = $stmt->fetch(PDO::FETCH_ASSOC);  //<---------- PARA COGER LA IMG DE LA BD.
+
+                
+
+                return $userimg;
+
+                
+	
+                         
+                       
+		
+
 	}
 
 

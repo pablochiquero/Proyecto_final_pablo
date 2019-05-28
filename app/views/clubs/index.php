@@ -14,7 +14,7 @@
                       <div class="card-body">
                         <h5 class="card-title"><?php echo $value['NombreLocal'];  ?></h5>
                         <p class="card-text"> <?php echo $value['Descrip'];  ?></p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="vistadetClub/index" class="btn btn-primary">Go somewhere</a>
                       </div>
               </div>
   

@@ -11,13 +11,14 @@
     <link rel="stylesheet" href="webroot/css/estilos.css">
     <link rel="stylesheet" href="webroot/css/reglog.css">
     <link rel="stylesheet" href="webroot/css/perfiles.css">
-  
+    <link rel="stylesheet" href="webroot/css/vistasdetalles.css">
     
     <script src="webroot/js/jquery-3.3.1.min.js"></script>
     <!-- <script src="webroot/js/home.js"></script> -->
     <script src="webroot/js/reglog.js"></script>
     <script src="webroot/js/perfilArtista.js"></script>
     <script src="webroot/js/perfilClub.js"></script>
+    <script src="webroot/js/vistadetalle.js"></script>
     <title>Proyecto con bootstrap</title>
 </head>
 <body>

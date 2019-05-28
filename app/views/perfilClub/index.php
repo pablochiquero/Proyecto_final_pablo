@@ -37,7 +37,7 @@
         <!--  IMG CLUB -->  
         <div class="col-6">           
             <div class="img-box" >
-				<img src="<?php echo $userData['Imagen'];?>" id="user-img">
+				<img src="<?php echo $userimg['Imagen'];?>" id="user-img">
 				<input type="file" id="user-img-file" name="user-img-file">
 				<label for="user-img-file" class="center">
 					Click aquí para subir imagen (2MB máx).

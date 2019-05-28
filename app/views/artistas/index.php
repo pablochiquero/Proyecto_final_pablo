@@ -14,7 +14,8 @@
                     <div class="card-body">
                       <h5 class="card-title"><?php echo $value['NombreArtistico'];  ?></h5>
                       <p class="card-text"> <?php echo $value['Descrip'];  ?></p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                      <p class="card-text"> <?php echo $value['NombreCategoria'];  ?></p>
+                      <a href="vistadetArt/index" class="btn btn-primary">Go somewhere</a>
                     </div>
             </div>
 
