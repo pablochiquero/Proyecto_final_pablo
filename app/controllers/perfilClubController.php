@@ -17,7 +17,7 @@ class perfilClubController extends Controller {
     }
 
     public function InsertDatos(){   
-        $usuario_sess=$_SESSION["club"][1];
+        $usuario_sess=$_SESSION["club"][0];
       
                 //INSERTAMOS DATOS DE FORMULARIO DE PERFIL E IMAGEN 
 

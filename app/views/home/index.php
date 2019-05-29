@@ -1,11 +1,12 @@
 <?php defined('BASEPATH') or exit ('No se permite acceso directo');?>
 
+      <!-- CONTENEDOR DONDE METEMOS RESULTADO DE BUSCADOR -->
+      <div class="contsearch"></div> 
 
+<div class="contsearch1"></div> 
 
-
-
-
-<div class="container-fluid">          <!--SLIDER-->
+              <!--SLIDER-->
+<div class="container-fluid">          
   <div class="row">   
     <div  class="col-7" >
       <div class="bd-example" >
@@ -77,103 +78,60 @@
     </div>
 </div>
 
-<div class="container-fluid" id="cbmp">         <!--  TARJETAS NUESTROS ARTISTAS -->
+<div class="container-fluid">         <!--  TARJETAS NUESTROS ARTISTAS -->
   <div class="row">
     <div class="contenteventos">
       <h1>Nuestros artistas</h1>
         <div class="proximoseventos">
+
+        <?php foreach($artistas as $value){ ?>   <!-- HACEMOS UN FOREACH PARA RECORRER LA VARIABLE DONDE ALMACENAMOS LA ARRAY RECOGIDA DE LA TABLA GENEROS-->
             
           <div class="card" style="width: 18rem;"> <!--  TARJETA QUE LUEGO NO IRA AQUI YA QUE SERA DINAMICA -->
-                  <img src="webroot/imagenes/5.jpeg" class="card-img-top" alt="...">
+                  <img src="<?php echo $value['Imagen'];  ?>" class="card-img-top" alt="...">
+
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Texto dinamico que creara el propio cliente</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                      <h5 class="card-title"><?php echo $value['NombreArtistico'];  ?></h5>
+                      <p class="card-text"> <?php echo $value['Descrip'];  ?></p>
+                      <p class="card-text"> <?php echo $value['NombreCategoria'];  ?></p>
+                      <a href="vistadetArt/index" class="btn btn-primary">Go somewhere</a>
                     </div>
             </div>
 
-            <div class="card" style="width: 18rem;"> <!--  TARJETA QUE LUEGO NO IRA AQUI YA QUE SERA DINAMICA -->
-                <img src="webroot/imagenes/5.jpeg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Texto dinamico que creara el propio cliente</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-            </div>
-
-            <div class="card" style="width: 18rem;"> <!--  TARJETA QUE LUEGO NO IRA AQUI YA QUE SERA DINAMICA -->
-              <img src="webroot/imagenes/5.jpeg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Texto dinamico que creara el propio cliente</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem;"> <!--  TARJETA QUE LUEGO NO IRA AQUI YA QUE SERA DINAMICA -->
-            <img src="webroot/imagenes/5.jpeg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Texto dinamico que creara el propio cliente</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-
+            <?php } ?>   <!-- FIN DEL FOREACH -->
             
       </div>         
     </div>
   </div>
-</div>    
+</div> 
+
+
+<div class="clear" ></div>
+
 
 
 <div class="container-fluid">         <!--  TARJETAS CLUBS -->
   <div class="row">
     <div class="contenteventos">
-      <h1>Nuestros Clubs</h1>
+      <h1>Clubs</h1>
         <div class="proximoseventos">
             
-        
+        <?php foreach($clubs as $value){ ?>   <!-- HACEMOS UN FOREACH PARA RECORRER LA VARIABLE DONDE ALMACENAMOS LA ARRAY RECOGIDA DE LA TABLA GENEROS-->
+            
             <div class="card" style="width: 18rem;"> <!--  TARJETA QUE LUEGO NO IRA AQUI YA QUE SERA DINAMICA -->
-                <img src="webroot/imagenes/3.jpeg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Texto dinamico que creara el propio cliente</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-            </div>
-
-            <div class="card" style="width: 18rem;"> <!--  TARJETA QUE LUEGO NO IRA AQUI YA QUE SERA DINAMICA -->
-              <img src="webroot/imagenes/3.jpeg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Texto dinamico que creara el propio cliente</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem;"> <!--  TARJETA QUE LUEGO NO IRA AQUI YA QUE SERA DINAMICA -->
-            <img src="webroot/imagenes/3.jpeg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Texto dinamico que creara el propio cliente</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <img src="<?php echo $value['Imagen'];  ?>" class="card-img-top" alt="...">
+  
+                      <div class="card-body">
+                        <h5 class="card-title"><?php echo $value['NombreLocal'];  ?></h5>
+                        <p class="card-text"> <?php echo $value['Descrip'];  ?></p>
+                        <a href="vistadetClub/index" class="btn btn-primary">Go somewhere</a>
+                      </div>
               </div>
-            </div>
-
-
-            <div class="card" style="width: 18rem;"> <!--  TARJETA QUE LUEGO NO IRA AQUI YA QUE SERA DINAMICA -->
-              <img src="webroot/imagenes/3.jpeg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Texto dinamico que creara el propio cliente</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-
+  
+              <?php } ?>   <!-- FIN DEL FOREACH -->
+            
             
       </div>         
     </div>
   </div>
 </div>
-
 <div class="clear" ></div>

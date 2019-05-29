@@ -1,29 +1,25 @@
 <?php defined('BASEPATH') or exit ('No se permite acceso directo');
+require_once(ROOT . DS . 'app' . DS . 'models' . DS . 'homeModel.php' );  //REQUERIMOS EL MODELO DONDE HAREMOS LA CONSULTA
 
 class homeController extends Controller {
 
     public function index(){
 
+        //ARTISTAS
+        $artistas=homeModel::get_artistas(); // INSTANCIAMOS UN METODO
+        $a["artistas"]=$artistas;                     //ALMACENAMOS EN UNA VARIABLE LOS DATOS RECOGIDOS
+        $this->set($a);         
+
+        //CLUBS
+        $clubs=homeModel::get_club(); // INSTANCIAMOS UN METODO
+        $c["clubs"]=$clubs;                     //ALMACENAMOS EN UNA VARIABLE LOS DATOS RECOGIDOS
+        $this->set($c);    
+        
+        
+        
+
         $this->render('index');
 
     }
-    // public function dato(){
-
-    // 	if(isset($_POST["dato"])){
-
- 	// 	$dato=Security::secure_input($_POST['dato']);
-    // 		 require(ROOT . DS . 'app' . DS . 'models' . DS . 'homeModel.php');
-    		 
-    // 		 $insertar= new homeModel();
-    // 		$d['mensaje'] =$insertar->recdato($dato);
-    // 		$this->set($d);
-    // 		$this->render('index');
-
-
-    // 	}
-    // 	else{
-	// 		header('location'. BASE_DOMAIN_DIR_URL.'webroot/404.php');
-    // 	}
-    // }
-
+   
 }

@@ -45,7 +45,7 @@ class perfilArtistaController extends Controller
 //INSERTAMOS DATOS DE FORMULARIO DE PERFIL E IMAGEN 
 
     public function InsertDatos(){   
-        $usuario_sess=$_SESSION["artista"][1];
+        $usuario_sess=$_SESSION["artista"][0];
       
 
         

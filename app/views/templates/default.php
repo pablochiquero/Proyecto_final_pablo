@@ -19,6 +19,8 @@
     <script src="webroot/js/perfilArtista.js"></script>
     <script src="webroot/js/perfilClub.js"></script>
     <script src="webroot/js/vistadetalle.js"></script>
+    <script src="webroot/js/search.js"></script>
+
     <title>Proyecto con bootstrap</title>
 </head>
 <body>
@@ -46,17 +48,18 @@ else{
 
 
 <main>
-    <div class="search">  <!--   BUSCADOR -->
+      <!--   BUSCADOR ARTISTAS Y CLUBS -->
+      <div class="search">  
         <nav class="navbar navbar-light bg-light">
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="SearchArtista" id="SearchArtista">
-            </form>
-        </nav>
-    </div>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="SearchArtista" id="SearchArtista">
+        </nav>    
+    </div>     
+
+    
 
 
-
-  <?php echo $content_for_layout;?>           <!--   HOME/INDEX -->                                      
+        <!--  INDEX -->  
+  <?php echo $content_for_layout;?>                                               
                   
 </main>
                 

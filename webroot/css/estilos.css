@@ -78,11 +78,32 @@ body{
 }
 }
 
-/* BUSCADOR */
+/* BUSCADOR Y CONTENEDOR DONDE INTRODUCIMOS DATOS */
 
 .search{
     width: 100%;
 }
+
+.contsearch{
+  width: 100%;
+padding-right: 8px;
+padding-left: 8px;
+margin-right: auto;
+margin-left: auto;
+   
+}
+
+
+.contsearch1{
+    width: 100%;
+padding-right: 8px;
+padding-left: 8px;
+margin-right: auto;
+margin-left: auto;
+   
+}
+
+
 
 
 
@@ -110,6 +131,7 @@ body{
     color: black!important;
    
 }
+
 
 
 

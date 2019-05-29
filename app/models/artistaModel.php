@@ -14,24 +14,6 @@ class artistaModel extends Model     //CLASE SESSION MODEL
     }        
                         
 		  
-		
-        
-
-  
-
-
-            // //GENEROS
-            // public function get_generos(){          //CREAMOS UNA FUNCIÓN PARA PODER REALIZAR LA CONSULTA
-
-            //     $connect = Model::getInstanceDB();  //CONEX A LA BASE DE DATOS
-            //     $sql ='SELECT * FROM Generos';     //CONSULTA PARA RECOGER LOS DATOS DE LA TABLA GENERO
-            //     $stmt = $connect->prepare($sql);        
-            //     $stmt->execute();
-            //     $generos = $stmt->fetchAll(PDO::FETCH_ASSOC);       
-            //     return $generos;
-            // }
-
-
     
 
 

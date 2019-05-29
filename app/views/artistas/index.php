@@ -1,5 +1,12 @@
 <?php defined('BASEPATH') or exit ('No se permite acceso directo');?>
 
+
+
+        <!-- CONTENEDOR DONDE METEMOS RESULTADO DE BUSCADOR -->
+    <div class="contsearch"></div> 
+
+    
+
 <div class="container-fluid">         <!--  TARJETAS NUESTROS ARTISTAS -->
   <div class="row">
     <div class="contenteventos">

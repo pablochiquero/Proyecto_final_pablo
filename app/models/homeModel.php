@@ -1,24 +1,26 @@
 <?php defined('BASEPATH') or exit ('No se permite acceso directo');
 
-class home extends Model {
-// public function recdato($dato){
-	
-// 	$id=null;
-// 	$connect = Model::getInstanceDB():
-// 	$sql= 'INSERT INTO datos  VALUES (:id, :dato)';
-// 	$stmt = $connect-> prepare($sql);
-// 	$stmt = bindParam(':id',$id)
-// 	$stmt = bindParam(':dato',$dato)
+class homeModel extends Model {
 
-
-
-// 	if(!$stmt->execute()){
-// 		return  "Fallo en la inserccion de datos a la DB";
-// 	}
-// 	else{
-// 		return "Dato insertado correctamente";
-// 	}
-// }
+    public function get_artistas()
+    {
+        $connect = Model::getInstanceDB();  //CONEX A LA BASE DE DATOS
+        // $sql ='SELECT * FROM UsuariosArtistas,categorias';     //CONSULTA PARA RECOGER LOS DATOS DE LA TABLA GENERO
+        $sql ='SELECT * FROM usuariosartistas join categorias on usuariosartistas.idCategorias = categorias.idCategorias';
+        $stmt = $connect->prepare($sql);        
+        $stmt->execute();
+        $artistas = $stmt->fetchAll(PDO::FETCH_ASSOC);       
+        return $artistas;
+    }        
+    public function get_club()
+    {
+        $connect = Model::getInstanceDB();  //CONEX A LA BASE DE DATOS
+        $sql ='SELECT * FROM UsuariosClub';     //CONSULTA PARA RECOGER LOS DATOS DE LA TABLA GENERO
+        $stmt = $connect->prepare($sql);        
+        $stmt->execute();
+        $clubs = $stmt->fetchAll(PDO::FETCH_ASSOC);       
+        return $clubs;
+    }        
 
 
 

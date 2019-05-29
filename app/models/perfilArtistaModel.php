@@ -39,7 +39,7 @@ class perfilArtistaModel extends Model
         $connect = Model::getInstanceDB();
 
         
-        $sql= "UPDATE UsuariosArtistas SET NombreArtistico = :NameArt, Descrip= :Descrip, Num= :Num ,idCategorias = :categoria, Imagen = :Img WHERE Email = :usuario";
+        $sql= "UPDATE UsuariosArtistas SET NombreArtistico = :NameArt, Descrip= :Descrip, Num= :Num ,idCategorias = :categoria, Imagen = :Img WHERE Nombre = :usuario";
         $stmt = $connect->prepare($sql);
 
         $stmt->bindParam(':NameArt', $Nombre);
@@ -68,7 +68,7 @@ class perfilArtistaModel extends Model
     {
        $connect = Model::getInstanceDB();
         
-       $sql= "UPDATE UsuariosArtistas SET NombreArtistico = :NameArt, Descrip= :Descrip, Num= :Num ,idCategorias = :categoria WHERE Email = :usuario";
+       $sql= "UPDATE UsuariosArtistas SET NombreArtistico = :NameArt, Descrip= :Descrip, Num= :Num ,idCategorias = :categoria WHERE Nombre = :usuario";
     
         $stmt = $connect->prepare($sql);
 

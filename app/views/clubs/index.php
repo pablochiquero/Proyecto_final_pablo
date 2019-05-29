@@ -1,6 +1,11 @@
 <?php defined('BASEPATH') or exit ('No se permite acceso directo');?>
 
-<div class="container-fluid">         <!--  TARJETAS PROXIMOS EVENTOS -->
+    <!-- CONTENEDOR DONDE METEMOS RESULTADO DE BUSCADOR -->
+    
+
+    <div class="contsearch1"></div> 
+
+<div class="container-fluid">         <!--  TARJETAS CLUBS -->
   <div class="row">
     <div class="contenteventos">
       <h1>Clubs</h1>

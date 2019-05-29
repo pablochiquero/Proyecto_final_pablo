@@ -1,5 +1,5 @@
 -- MySQL Workbench Forward Engineering
-
+SET SQL_SAFE_UPDATES = 0;
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`UsuariosArtistas` (
   `Descrip` VARCHAR(100) NULL DEFAULT NULL,
   `Num` INT(11) NULL DEFAULT NULL,
   `Imagen` VARCHAR(200) NOT NULL DEFAULT 'data-user/img/no-image.jpg',
-  `idCategorias` INT(11) NOT NULL,
+  `idCategorias` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`idUsuariosArtistas`),
   INDEX `fk_UsuariosArtistas_Categorias1_idx` (`idCategorias` ASC),
   CONSTRAINT `fk_UsuariosArtistas_Categorias1`
@@ -132,3 +132,12 @@ INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGe
 
 COMMIT;
 
+select * from usuariosartistas;
+
+select * from UsuariosClub;
+
+
+
+select * from usuariosartistas join categorias on usuariosartistas.idCategorias = categorias.idCategorias;
+
+SELECT * FROM `UsuariosArtistas` WHERE Nombre LIKE concat('%', 'Rafael', '%') ;
