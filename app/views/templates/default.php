@@ -66,13 +66,13 @@ else{
 
 
 
+<!--    FOOTER -->
 
-
-<!-- <footer class="foot clear">           FOOTER -->
-    <!-- <div  class="col-4">
-        <p ><//?php echo date("Y");?> © Siatelo</p>
+<!-- <footer class="foot clear">        
+  <div  class="col-4">
+        <p><//?php echo date("Y");?> © Siatelo</p>
     </div>
-</footer>                                        --> 
+</footer>                                      -->
 
             
 

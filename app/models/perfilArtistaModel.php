@@ -23,7 +23,7 @@ class perfilArtistaModel extends Model
         $stmt = $connect->prepare($sql);        
         $stmt->bindParam(":id", $a);
         $stmt->execute();
-        $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);       
+        $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $categorias;
     }
 
@@ -49,8 +49,7 @@ class perfilArtistaModel extends Model
         $stmt->bindParam(':Img', $new_img);
         $stmt->bindParam(':usuario', $usuario_sess);
        
-        
-        var_dump($stmt);
+    
 
         if($stmt->execute()){
             return true;
@@ -82,6 +81,7 @@ class perfilArtistaModel extends Model
          if($stmt->execute())
          {
              return true;
+             
  
          } else {
  

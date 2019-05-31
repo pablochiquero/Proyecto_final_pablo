@@ -86,6 +86,7 @@ class sessionController extends Controller {
 
         $insertarRegClub = new sessionModel;
         echo json_encode($insertarRegClub->Reg_club($NameCR,$EmailCR,$PassCR));
+       
         
         
      }

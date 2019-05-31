@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') or exit ('No se permite acceso directo');?>
 
-
+<div class="contsearch1"></div> 
       
 <form  method="post" id="RegPerfilClub" class="cont-form-art col-12" enctype="multipart/form-data">
 

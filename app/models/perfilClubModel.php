@@ -10,7 +10,7 @@ class perfilClubModel extends Model
         $connect = Model::getInstanceDB();
 
         
-        $sql= "UPDATE UsuariosClub SET 	NombreLocal = :NameClub , Descrip = :Descrip, Num = :Numero, Imagen = :Img  WHERE  Email = :usuario";
+        $sql= "UPDATE UsuariosClub SET 	NombreLocal = :NameClub , Descrip = :Descrip, Num = :Numero, Imagen = :Img  WHERE  Nombre= :usuario";
         $stmt = $connect->prepare($sql);
 
       
@@ -38,7 +38,7 @@ class perfilClubModel extends Model
         $connect = Model::getInstanceDB();
 
         
-        $sql= "UPDATE UsuariosClub SET 	NombreLocal = :NameClub , Descrip = :Descrip, Num = :Numero WHERE  Email = :usuario";
+        $sql= "UPDATE UsuariosClub SET 	NombreLocal = :NameClub , Descrip = :Descrip, Num = :Numero WHERE  Nombre = :usuario";
         $stmt = $connect->prepare($sql);
 
       

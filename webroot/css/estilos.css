@@ -38,6 +38,13 @@ body{
 }
 
 
+/* SLIDER */
+.carousel-item {
+width: 75%;
+}
+
+
+
     /*LOGO TARJETA DE DESCRIPCION */
 .entr{ 
     font-family: 'Indie Flower', cursive;
@@ -49,9 +56,11 @@ body{
 }
 
 
+
+
     /* DE PROXIMOS EVENTOS*/
 .proximoseventos{ 
-    width: 100%;
+    width: 90%;
     display: flex!important;
     flex-wrap: wrap!important;
     justify-content: space-around!important;
@@ -67,16 +76,13 @@ body{
     text-align: center;
 } 
 
-.card-img-top {
-    padding: 1rem !important;
+/* BOTONES CONT-EVENTOS */
+
+a.btn-vist{
+    text-decoration: none;
+color: black;
 }
 
-@media (max-width: 740px){
-.card {
-  
-    margin: 0.5rem!important;
-}
-}
 
 /* BUSCADOR Y CONTENEDOR DONDE INTRODUCIMOS DATOS */
 
@@ -136,7 +142,30 @@ margin-left: auto;
 
 
 
+/* IMAGENES */
 
+.card-img-top{
+    background-size: cover;
+    background-position: center;
+    height: 15rem;
+}
+
+.card{
+    padding: 0.5rem;
+}
+
+
+
+@media (max-width: 740px){
+    .card {
+      
+        margin: 0.5rem!important;
+    }
+
+    .carousel-caption{
+        font-size: 1rem;
+    }
+    }
 
 
 

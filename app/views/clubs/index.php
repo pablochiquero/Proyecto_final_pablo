@@ -14,12 +14,14 @@
         <?php foreach($clubs as $value){ ?>   <!-- HACEMOS UN FOREACH PARA RECORRER LA VARIABLE DONDE ALMACENAMOS LA ARRAY RECOGIDA DE LA TABLA GENEROS-->
             
             <div class="card" style="width: 18rem;"> <!--  TARJETA QUE LUEGO NO IRA AQUI YA QUE SERA DINAMICA -->
-                    <img src="<?php echo $value['Imagen'];  ?>" class="card-img-top" alt="...">
-  
+                    
+                    <div class="card-img-top" style="background-image: url(<?php echo $value['Imagen'];  ?>)" ></div>
                       <div class="card-body">
                         <h5 class="card-title"><?php echo $value['NombreLocal'];  ?></h5>
+                        <hr>
                         <p class="card-text"> <?php echo $value['Descrip'];  ?></p>
-                        <a href="vistadetClub/index" class="btn btn-primary">Go somewhere</a>
+                        <hr>
+                        <a href="vistadetClub/index/<?php echo $value['Nombre'];?>" class="btn btn-primary">Go somewhere</a>
                       </div>
               </div>
   

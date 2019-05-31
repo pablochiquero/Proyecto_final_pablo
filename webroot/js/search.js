@@ -24,11 +24,11 @@ $(document).ready(function(){            // HAY QUE MODIFICARLO TODO PARA ADAPTA
 						
 							divContent+='<div class="row">';
 								divContent+='<div class="contenteventos">';
-									divContent+='<h3> Estos son nuestros artistas encontrados</h3>';
+									divContent+='<h4> Estos son los artistas encontrados según tu busqueda.</h4>';
 										divContent+='<div class="proximoseventos">';
  
 						
-						// divContent+='<h3> Estos son los artistas encontrados según tu busqueda.</h3>';
+						
 						for(var i = 0; i<data[0].length; i++)
 						{					//PINTAMOS LAS CATEGORIAS DINAMICAS.
 							
@@ -62,7 +62,7 @@ $(document).ready(function(){            // HAY QUE MODIFICARLO TODO PARA ADAPTA
 
 							divContent1+='<div class="row">';
 								divContent1+='<div class="contenteventos">';
-									divContent1+='<h3>Estos son nuestros Clubs encontrados</h3>';
+									 divContent1+='<h3>Estos son nuestros Clubs encontrados</h3>';
 										divContent1+='<div class="proximoseventos">';
  
 						for(var i = 0; i<data[1].length; i++)
@@ -89,8 +89,11 @@ $(document).ready(function(){            // HAY QUE MODIFICARLO TODO PARA ADAPTA
 
 						if(data.length>0)
 						{
+					
+								$(".contsearch").html(divContent);
 							
-							$(".contsearch").html(divContent);
+							
+							
 							
 
 							$(".contsearch1").html(divContent1);
@@ -98,6 +101,10 @@ $(document).ready(function(){            // HAY QUE MODIFICARLO TODO PARA ADAPTA
 						}
 						else
 						{
+							$(".contsearch").html("Lo sentimos no hemos encontrado ninguna coincidencia");
+							
+
+						$(".contsearch1").html("Lo sentimos no hemos encontrado ninguna coincidencia");
 							
 						}
 				 

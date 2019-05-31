@@ -3,18 +3,17 @@
     margin: 0;
 }
 /* CONTENEDOR IMAGEN */
-.content{
-
-    width: 80rem!important;
-    margin: 20px !important;
-    position: relative!important;
-    text-align: center;
-    padding: 4rem 1rem;
+.content {
+    width: 38%!important;
+    margin: 15px auto !important;
+    /* position: relative!important; */
+    /* text-align: center; */
+    padding: 2rem 1rem;
     border-radius: 0.5rem;
     background: rgba(223, 220, 220, 0.466);
     box-shadow: 5px 5px 16px grey;
-    background-position: center!important;
-    background-size: auto!important;
+    /* background-position: center!important; */
+    /* background-size: auto!important; */
 }
 
 /* IMAGEN */
@@ -38,6 +37,11 @@
     margin: 0.5rem;
     display: inline-block;
 }
+.card-title {
+    margin-bottom: .75rem;
+    text-align: center;
+    font-size: 3rem;
+}
 
 
 
@@ -46,7 +50,9 @@
     border: solid 1px gray;
     padding: 2rem;
     border-radius: 0.5rem;
-    margin: 10rem 10rem;
+    margin: 7rem 3rem;
+    background: rgba(223, 220, 220, 0.466);
+    box-shadow: 5px 5px 16px grey;
 }
 
 
@@ -57,6 +63,7 @@
 
 .contnum{
     margin: auto;
+    margin-bottom: 3rem;
 }
 
 .Numcontact{

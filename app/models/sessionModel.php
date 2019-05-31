@@ -115,6 +115,7 @@ class sessionModel extends Model     //CLASE SESSION MODEL
                 {
                 
                          echo json_encode('Registro correcto.');
+                         
                 }
         }
                                

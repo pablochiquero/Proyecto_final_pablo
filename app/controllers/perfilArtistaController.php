@@ -11,7 +11,12 @@ class perfilArtistaController extends Controller
 
         //GENEROS
         $generos=perfilArtistaModel::get_generos(); // INSTANCIAMOS UN METODO
-        $d["generos"]=$generos;                     //ALMACENAMOS EN UNA VARIABLE LOS DATOS RECOGIDOS
+                            //ALMACENAMOS EN UNA VARIABLE LOS DATOS RECOGIDOS
+        // for ($i=0; $i <count($generos) ; $i++) 
+        // { 
+        //     $generos[$i]["Nombre"] = utf8_encode($generos[$i]["Nombre"] );
+        // }
+        $d["generos"]=$generos; 
         $this->set($d);                             // SET A ESTA VARIABLE Y LA MANDAMOS AL INDEX
 
 
@@ -33,8 +38,11 @@ class perfilArtistaController extends Controller
 
         $a = $_POST["genero"];
         $categorias=perfilArtistaModel::get_categorias($a);   // INSTANCIAMOS UN METODO
+        for ($i=0; $i <count($categorias) ; $i++) 
+        { 
+            $categorias[$i]["NombreCategoria"] = utf8_encode($categorias[$i]["NombreCategoria"]);
+        }
         echo json_encode($categorias);
-
     }
 
     

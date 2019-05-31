@@ -4,79 +4,26 @@
 
     <!-- IMAGEN ARTISTA -->
 <div class="col-10 content">
-    <div class="ajustimg" style="background-image: url('webroot/imagenes/3.jpeg');">
+    <div class="ajustimg" style="background-image: url('<?php echo $artistas[0]['Imagen'];  ?>');">
 
     </div>
-
+ 
 </div>
 
 
-    <!-- CONTENEDOR ULTIMOS EVENTOS -->
-<div class="col-12 ContEvents">
-<h2>Mis ultimos eventos</h2>
-    <div class="card col-2" >
-        <img src="#" class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-    </div>
 
-    <div class="card col-2" >
-       
-        <img src="#" class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-    </div>
-
-    <div class="card col-2" >
-        <img src="#" class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-    </div>
-
-    <div class="card col-2" >
-        <img src="#" class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-    </div>
-
-    <div class="card col-2" >
-        <img src="#" class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-    </div>
-
-    <div class="card col-2" >
-        <img src="#" class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-    </div>
-
-    <div class="card col-2" >
-        <img src="#" class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-    </div>
-
-</div>
 
 
 
 
     <!-- QUIEN ERES -->
 
+    <h5 class="card-title"><?php echo $artistas[0]['NombreArtistico'];  ?></h5>
+        <div class="col-4 Quiensoy">
+            <h2>Que soy?</h2>
+                <p><?php echo $artistas[0]['Descrip'];  ?></p>
 
-<div class="col-8 Quiensoy">
-    <h2>Que soy?</h2>
-<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae voluptate accusamus dicta laborum dolore doloribus, voluptates qui deleniti atque nobis modi voluptatum tempore inventore cumque dignissimos rem velit necessitatibus iure?</p>
-
-</div>
+        </div>
 
 <div class="col-10 contnum">
     <div class="Numcontact" id="Numcontact"></div>
@@ -87,3 +34,14 @@
 
 
 
+
+    <!-- CONTENEDOR ULTIMOS EVENTOS  PARA CREAR PROXIMAMENTE-->
+<!-- <div class="col-12 ContEvents">
+<h2>Mis ultimos eventos</h2>
+    <div class="card col-2" >
+        <img src="#" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+    </div>
+</div> -->

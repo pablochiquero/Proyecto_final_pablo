@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`Categorias` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 24
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`UsuariosArtistas` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `BD_Proyecto`.`UsuariosClub` (
   `Imagen` VARCHAR(200) NULL DEFAULT 'data-user/img/no-image.jpg',
   PRIMARY KEY (`idUsuariosClub`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 4
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -132,12 +132,13 @@ INSERT INTO `BD_Proyecto`.`Categorias` (`idCategorias`, `NombreCategoria`, `idGe
 
 COMMIT;
 
-select * from usuariosartistas;
+-- select * from usuariosartistas;
 
-select * from UsuariosClub;
+-- select * from UsuariosClub;
 
+-- DELETE FROM UsuariosClub WHERE Nombre='asd';
+-- DELETE FROM usuariosartistas WHERE NombreArtistico='asd';
 
+-- select * from usuariosartistas join categorias on usuariosartistas.idCategorias = categorias.idCategorias;
 
-select * from usuariosartistas join categorias on usuariosartistas.idCategorias = categorias.idCategorias;
-
-SELECT * FROM `UsuariosArtistas` WHERE Nombre LIKE concat('%', 'Rafael', '%') ;
+-- SELECT * FROM `UsuariosArtistas` WHERE Nombre LIKE concat('%', 'Rafael', '%') ;

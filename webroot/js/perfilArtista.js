@@ -12,7 +12,9 @@ $(document).ready(function()
 
                     
                     success:function(data){
-                        var datos = JSON.parse(data);
+						var datos = JSON.parse(data);
+						// var datos =data;
+						
                        var divContent = "";
 
 
@@ -126,24 +128,24 @@ $(document).ready(function()
 			}
 
 
-			// if ($('#generos').val() === '') {		// <-- VALIDACIÓN DE GÉNERO REG PERFIL ARTISTA
+			if ($('#generos').val() === '') {		// <-- VALIDACIÓN DE GÉNERO REG PERFIL ARTISTA
 			
-			// 	msg+="Debe seleccionar una opción<br>"; 
-			// 	$("#generos").addClass('error-validation');
+				msg+="Debe seleccionar una opción<br>"; 
+				$("#generos").addClass('error-validation');
 		
-			// } else {
+			} else {
 				
-			// 	$("#generos").removeClass('error-validation');
-			// }
+				$("#generos").removeClass('error-validation');
+			}
 
-			// if ($('#categoria').val() === '') {		// <-- VALIDACIÓN DE CATEGORIA REG PERFIL ARTISTA
-			// 	msg+="Debe seleccionar una opción<br>"; 
-			// 	$("#categoria").addClass('error-validation');
+			if ($('#categoria').val() === '') {		// <-- VALIDACIÓN DE CATEGORIA REG PERFIL ARTISTA
+				msg+="Debe seleccionar una opción<br>"; 
+				$("#categoria").addClass('error-validation');
 		
-			// } else {
+			} else {
 				
-			// 	$("#categoria").removeClass('error-validation');
-			// }
+				$("#categoria").removeClass('error-validation');
+			}
 			  
 			
 
