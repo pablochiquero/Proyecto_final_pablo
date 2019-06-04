@@ -46,6 +46,10 @@ else{
 ?>
 </header>
 
+<div>
+    <h3>Lo sentimos, esta pagina no realiza todas las funciones necesarias, pagina en proceso.</h3>
+</div>
+
 
 <main>
       <!--   BUSCADOR ARTISTAS Y CLUBS -->

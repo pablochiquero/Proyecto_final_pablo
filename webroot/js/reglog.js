@@ -200,7 +200,7 @@ $(document).ready(function()
 
             $("#registrarClub").click(function(){   //<-- BOTON REG CLUB
                 msg="";
-                if($("#NameClubReg").val()==""){        // <-- VALIDACIÓN DE NOMBRE REG CLUB
+                if($("#NameClubReg").val()==""){        // <-- <-- VAL NAME REG CLUB
                     msg+="Rellene el campo Nombre <br>";
                     $("#NameClubReg").addClass('error-validation');
 
@@ -208,7 +208,7 @@ $(document).ready(function()
                     $("#NameClubReg").removeClass('error-validation');
                 
                 }
-                if($("#EmailClubReg").val() == ""){     // <-- VALIDACIÓN DE EMAIL REG CLUB
+                if($("#EmailClubReg").val() == ""){     // <--  VAL NAME EMAIL CLUB
                     msg+= " Rellene el campo Email <br>";
                 
                     $("#EmailClubReg").addClass('error-validation');
@@ -217,7 +217,7 @@ $(document).ready(function()
                     $("#EmailClubReg").removeClass('error-validation');
                 
                 }  
-                if($("#PassClubReg").val() == ""){      // <-- VALIDACIÓN DE PASS REG CLUB
+                if($("#PassClubReg").val() == ""){      // <--  VAL NAME PASS CLUB
                     msg+= " Rellene el campo Password <br>";
                 
                     $("#PassClubReg").addClass('error-validation');
@@ -227,7 +227,7 @@ $(document).ready(function()
                 
                 } 
 
-                $(".errorsClubReg").html(msg);           // <-- CONTENEDOR DE ERRORS DE REG CLUB
+                $(".errorsClubReg").html(msg);           // <-- CONT  ERRORS REG CLUB
 
         //  ENVIO POR AJAX DE REGISTRO CLUB (DENTRO DE LA FUNCIÓN VALIDAR REGISTRO)
                 if(msg == "")
@@ -260,11 +260,11 @@ $(document).ready(function()
 
 
 
-        // VALIDAR CAMPOS DE LOGIN CLUB
+        // VAL LOG CLUB
         $("#entrarClub").click(function(){
 
             msg="";
-            if($("#NameClubLog").val()==""){        // <-- VALIDACIÓN DE NOMBRE REG CLUB
+            if($("#NameClubLog").val()==""){        // <-- VAL NAME LOG CLUB
                 msg+="Rellene el campo Nombre <br>";
                 $("#NameClubLog").addClass('error-validation');
 
@@ -272,7 +272,7 @@ $(document).ready(function()
                 $("#NameClubLog").removeClass('error-validation');
             
             }
-            if($("#EmailClubLog").val() == ""){  // <-- VALIDACIÓN DE EMAIL LOG CLUB
+            if($("#EmailClubLog").val() == ""){  // <-- VAL NAME LOG CLUB
                 msg+= " Rellene el campo Email <br>";
             
                 $("#EmailClubLog").addClass('error-validation');
@@ -281,7 +281,7 @@ $(document).ready(function()
                 $("#EmailClubLog").removeClass('error-validation');
             
             }
-            if($("#PassClubLog").val() == ""){  // <-- VALIDACIÓN DE PASS LOG CLUB
+            if($("#PassClubLog").val() == ""){  // <-- VAL NAME LOG CLUB
                 msg+= " Rellene el campo Password <br>";
             
                 $("#PassClubLog").addClass('error-validation');
@@ -291,11 +291,11 @@ $(document).ready(function()
             
             }   
 
-            $(".errorsClubLog").html(msg);       // <-- CONTENEDOR DE ERRORS DE LOG CLUB
+            $(".errorsClubLog").html(msg);       // <-- CONTE ERRORS  LOG CLUB
 
 
 
-            //   ENVIO POR AJAX DE LOGIN CLUB (DENTRO DE LA FUNCIÓN VALIDAR LOGIN)
+            //   ENVIO AJAX LOGIN CLUB 
             if(msg == "")
             {
                 $.ajax({
